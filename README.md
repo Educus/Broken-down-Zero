@@ -52,9 +52,9 @@
   
 
 
-### 코드설명
+### 관련 사이트
 
-
+**https://www.notion.so/Broken-down-Zero-162b5d2363b08011af7ef3812824ec4e**
 
 ### 플레이영상
 **https://youtu.be/**
