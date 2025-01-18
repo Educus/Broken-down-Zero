@@ -49,6 +49,16 @@ public class Player : MonoBehaviour
         float x = (right && left) ? 0 : (right) ? 1 : (left) ? -1 : 0;
 
         rigid.velocity = new Vector2(x * moveSpeed, rigid.velocity.y);
+        anim.SetInteger("Move", (int)rigid.velocity.x);
+
+        if (x < 0)
+        {
+            sprite.flipX = true;
+        }
+        else if (x > 0)
+        {
+            sprite.flipX = false;
+        }
     }
     public void Jump()
     {
