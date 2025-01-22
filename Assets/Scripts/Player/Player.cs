@@ -119,8 +119,6 @@ public class Player : MonoBehaviour
     private void JumpingDown()
     {
         // 하단 점프
-
-        down = false;
     }
 
     public bool dash = false;
@@ -170,6 +168,14 @@ public class Player : MonoBehaviour
         if (!skill2) return;
 
         skill2 = false;
+    }
+
+    public GameObject interactionTarget;
+    public void Interaction()
+    {
+        if (interactionTarget == null) return;
+
+        interactionTarget.GetComponent<IInteraction>().Interact();
     }
 
     private void OnDrawGizmos()
