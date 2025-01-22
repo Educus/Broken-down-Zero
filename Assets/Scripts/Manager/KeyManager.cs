@@ -6,9 +6,14 @@ public enum KeyInput
 {
     LEFT, 
     RIGHT,
+    DOWN,
     ATTACK,
     JUMP,
     DASH,
+    SKILL1,
+    SKILL2,
+    INVENTORY,
+    INTERACTION,
     KEYCOUNT
 }
 public static class KeyDiction
@@ -18,15 +23,20 @@ public static class KeyDiction
 
 public class KeyManager : Singleton<KeyManager>
 {
-    GameObject player;
+    Player player;
 
     KeyCode[] defaultKeys = new KeyCode[]
     {
         KeyCode.LeftArrow,
         KeyCode.RightArrow,
+        KeyCode.DownArrow,
         KeyCode.Z,
         KeyCode.X,
-        KeyCode.C
+        KeyCode.C,
+        KeyCode.A,
+        KeyCode.S,
+        KeyCode.E,
+        KeyCode.F
     };
 
     private void Awake()
@@ -41,7 +51,7 @@ public class KeyManager : Singleton<KeyManager>
     private void Update()
     {
         if (GameManager.Instance.player == null) return;
-        else { player = GameManager.Instance.player; }
+        else { player = GameManager.Instance.player.GetComponent<Player>(); }
 
         TestInput();
     }
@@ -70,33 +80,59 @@ public class KeyManager : Singleton<KeyManager>
     {
         if (Input.GetKey(KeyDiction.keys[KeyInput.LEFT]))
         { 
-            player.GetComponent<Player>().left = true;
+            player.left = true;
         }
         if (Input.GetKeyUp(KeyDiction.keys[KeyInput.LEFT]))
         {
-            player.GetComponent<Player>().left = false;
+            player.left = false;
         }
         if (Input.GetKey(KeyDiction.keys[KeyInput.RIGHT]))
         {
-            player.GetComponent<Player>().right = true;
+            player.right = true;
         }
         if (Input.GetKeyUp(KeyDiction.keys[KeyInput.RIGHT]))
         {
-            player.GetComponent<Player>().right = false;
+            player.right = false;
         }
+        if (Input.GetKey(KeyDiction.keys[KeyInput.DOWN]))
+        {
+            player.down = true;
+        }
+        if (Input.GetKeyUp(KeyDiction.keys[KeyInput.DOWN]))
+        {
+            player.down = false;
+        }
+
 
 
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.ATTACK])) 
         {
-            player.GetComponent<Player>().attack = true;
+            player.attack = true;
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.JUMP]))
         { 
-            player.GetComponent<Player>().jump = true;
+            player.jump = true;
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.DASH]))
         {
-            player.GetComponent<Player>().dash = true;
+            player.dash = true;
         }
+        if (Input.GetKeyDown(KeyDiction.keys[KeyInput.SKILL1]))
+        {
+            player.skill1 = true;
+        }
+        if (Input.GetKeyDown(KeyDiction.keys[KeyInput.SKILL2]))
+        {
+            player.skill2 = true;
+        }
+        if (Input.GetKeyDown(KeyDiction.keys[KeyInput.INVENTORY]))
+        {
+            
+        }
+        if (Input.GetKeyDown(KeyDiction.keys[KeyInput.INTERACTION]))
+        {
+            player.Interaction();
+        }
+
     }
 }
