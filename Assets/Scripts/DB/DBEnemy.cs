@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyStat
+{
+    HP,
+    ATK,
+    DEF,
+    SPEED,
+    ATTACK_SPEED,
+}
 public class DBEnemy : Singleton<DBEnemy>
 {
     private int hp, power, defence, moveSpeed, attackSpeed;
