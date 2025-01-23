@@ -169,15 +169,6 @@ public class Player : MonoBehaviour
 
         skill2 = false;
     }
-
-    public GameObject interactionTarget;
-    public void Interaction()
-    {
-        if (interactionTarget == null) return;
-
-        interactionTarget.GetComponent<IInteraction>().Interact();
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector2(0.7f, 0.035f));
