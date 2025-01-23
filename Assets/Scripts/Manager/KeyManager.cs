@@ -127,7 +127,7 @@ public class KeyManager : Singleton<KeyManager>
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.INVENTORY]))
         {
-            
+            InventoryManager.Instance.OpenInven();
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.INTERACTION]))
         {

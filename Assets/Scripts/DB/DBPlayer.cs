@@ -3,6 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerStat
+{
+    HP,
+    ATK,
+    DEF,
+    SPEED,
+    ATTACK_SPEED,
+    CRITICAL_CHANCE,
+    CRITICAL_MULTIPLIER,
+    AVOID
+}
 public class DBPlayer : Singleton<DBPlayer>
 {
     public readonly float maxHp           = 0; // 최대체력
