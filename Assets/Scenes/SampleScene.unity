@@ -10954,7 +10954,7 @@ GameObject:
   - component: {fileID: 2018336796}
   - component: {fileID: 2018336795}
   - component: {fileID: 2018336794}
-  - component: {fileID: 2018336793}
+  - component: {fileID: 2018336798}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -10962,20 +10962,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2018336793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018336792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6c861a4a7fdc0549a784e02bcf75ef2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemCode: 10000
-  itemNum: 1
 --- !u!58 &2018336794
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11105,6 +11091,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 184046271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2018336798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018336792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c861a4a7fdc0549a784e02bcf75ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCode: 10000
+  itemNum: 1
 --- !u!1 &2037411903
 GameObject:
   m_ObjectHideFlags: 0

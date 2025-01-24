@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Potal : Interaction
 {
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().sortingOrder = 3;
+    }
     public override void Interact()
     {
         // 이후 수정
