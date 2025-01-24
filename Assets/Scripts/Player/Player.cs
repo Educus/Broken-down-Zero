@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        sprite.sortingOrder = 10;
 
         GetStat();
     }
