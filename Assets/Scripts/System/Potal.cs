@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Potal : Interaction
 {
+    [SerializeField] public int nextStage;
+
     private void Start()
     {
         GetComponent<SpriteRenderer>().sortingOrder = 3;
@@ -12,5 +14,6 @@ public class Potal : Interaction
     {
         // 이후 수정
         Debug.Log("Potal 상호작용 완료");
+        StartCoroutine(SceneController.Instance.AsyncLoad(nextStage));
     }
 }
