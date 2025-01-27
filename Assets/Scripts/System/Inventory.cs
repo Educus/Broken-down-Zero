@@ -15,11 +15,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject weapon;
 
     [SerializeField] GameObject bag;
-    private List<Image> itemImage = new List<Image>();
-    private List<int> itemsCode = new List<int>();
-    private List<int> itemsNum = new List<int>();
+    private List<ItemSlot> itemSlots = new List<ItemSlot>();
 
-    private void Start()
+    private void Awake()
     {
         foreach (Transform child in myStat.transform)
         {
@@ -27,18 +25,14 @@ public class Inventory : MonoBehaviour
         }
         foreach (Transform child in bag.transform)
         {
-            itemImage.Add(child.GetComponent<Image>());
-        }
-        foreach (var image in itemImage)
-        {
-            image.color = new Color(1, 1, 1, 0);
+            itemSlots.Add(child.GetComponent<ItemSlot>());
+            child.GetComponent<ItemSlot>().ClearSolt();
         }
     }
     void Update()
     {
         Stat();
         Weapon();
-        Item();
     }
 
     private void Stat()
@@ -51,63 +45,63 @@ public class Inventory : MonoBehaviour
     }
     private void Weapon()
     {
-        int itemcode;
+        int itemID;
         if (weapon.transform.childCount == 0)
         {
-            itemcode = 10000;
+            itemID = 10000;
         }
         else
         {
-            itemcode = weapon.transform.GetChild(0).GetComponent<Item>().itemCode;
+            itemID = weapon.transform.GetChild(0).GetComponent<Item>().dbItem.ItemID;
         }
 
-        string path = "PlayerImage/PlayerIdle" + itemcode;
+        string path = "PlayerImage/PlayerIdle" + itemID.ToString();
 
         myCharacter.sprite = Resources.Load<Sprite>(path);
     }
-    private void Item()
+
+    public void GetItem(Item item)
     {
-        // 이후 수정
-        // string path = "ItemImage/Item";
-        string path = "PlayerImage/PlayerIdle" + 10000; // 실험용
-        int itemsCount = itemsCode.Count;
-
-        for (int i = 0; i < itemImage.Count; i++)
+        if (!item.dbItem.CanOverlap)
         {
-            if (i >= itemsCount)
-            {
-                itemImage[i].color = new Color(1, 1, 1, 0);
-            }
-            else
-            {
-                itemImage[i].color = new Color(1, 1, 1, 1);
-                itemImage[i].sprite = Resources.Load<Sprite>(path);
-                // itemImage[i].sprite = Resources.Load<Sprite>(path + itemsCode[i].ToString()); <- 이후 변경
-            }
-        }
-    }
-
-    public void GetItem(int itemCode, int num)
-    {
-        int value = itemsCode.FindIndex(n => n == itemCode);
-
-        if (value == -1)
-        {
-            NewItem(itemCode, num);
+            NewItem(item);
         }
         else
         {
-            AddItem(value, num);
+            AddItem(item);
+            if(item != null)
+                NewItem(item);
         }
+
     }
 
-    private void NewItem(int itemCode, int num)
+    private void NewItem(Item item)
     {
-        itemsCode.Add(itemCode);
-        itemsNum.Add(num);
+        for (int i = 0; i < itemSlots.Count; i++)
+        {
+            if (itemSlots[i].dbItem == null)
+            {
+                itemSlots[i].AddItem(item.dbItem);
+                item.DestoyItem();
+                item = null;
+                return;
+            }
+        }
     }
-    private void AddItem(int value, int num)
+    private void AddItem(Item item)
     {
-        itemsNum[value] += num;
+        for (int i = 0; i < itemSlots.Count; i++)
+        {
+            if (itemSlots[i].dbItem != null)
+            {
+                if (itemSlots[i].dbItem.ItemID == item.dbItem.ItemID)
+                {
+                    itemSlots[i].UpdateSlotCount(1);
+                    item.DestoyItem();
+                    item = null;
+                    return;
+                }
+            }
+        }
     }
 }

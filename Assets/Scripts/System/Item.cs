@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
@@ -8,8 +9,8 @@ using UnityEngine;
 // public abstract class Item : MonoBehaviour
 public class Item : MonoBehaviour
 {
-    public int itemCode = 10000;
-    public int itemNum = 1;
+    [SerializeField] private DBItem mDBItem;
+    public DBItem dbItem { get { return mDBItem; } }
 
     private void Start()
     {
@@ -23,13 +24,16 @@ public class Item : MonoBehaviour
         if (collision.tag == "Player")
         {
             EatItem();
-            Destroy(gameObject);
         }
     }
 
     private void EatItem()
     {
-        InventoryManager.Instance.GetItem(itemCode, itemNum);
+        InventoryManager.Instance.GetItem(this);
     }
 
+    public void DestoyItem()
+    {
+        Destroy(gameObject);
+    }
 }

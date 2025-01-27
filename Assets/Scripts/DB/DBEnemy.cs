@@ -2,27 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyStat
+[CreateAssetMenu(fileName = "Enemy", menuName = "Add DB/Enemy")]
+public class DBEnemy : ScriptableObject
 {
-    HP,
-    ATK,
-    DEF,
-    SPEED,
-    ATTACK_SPEED,
-}
-public class DBEnemy : Singleton<DBEnemy>
-{
-    private int hp, power, defence, moveSpeed, attackSpeed;
+    [Header("몬스터 ID")]
+    [SerializeField] private int mEnemyID;
+    public int EnemyID { get { return mEnemyID; } }
 
-    public int[] goblin()
-    {
-        hp          = 0;
-        power       = 0;
-        defence     = 0;
-        moveSpeed   = 0;
-        attackSpeed = 0;
+    [Header("몬스터 공격력")]
+    [SerializeField] private float mEnemyATK;
+    public float EnemyATK { get { return mEnemyATK; } }
 
-        return new int[] { hp, power, defence,moveSpeed, attackSpeed };
-    }
+    [Header("몬스터 방어력")]
+    [SerializeField] private float mEnemyDEF;
+    public float EnemyDEF { get { return mEnemyDEF; } }
 
+    [Header("몬스터 이동 속도")]
+    [SerializeField] private float mEnemySPEED;
+    public float EnemySPEED { get { return mEnemySPEED; } }
+
+    [Header("몬스터 공격 속도")]
+    [SerializeField] private float mEnemyATKSPEED;
+    public float EnemyATKSPEED { get { return mEnemyATKSPEED; } }
+
+    [Header("몬스터 이미지")]
+    [SerializeField] private Sprite mEnemyImage;
+    public Sprite EnemyImage { get { return mEnemyImage; } }
+
+    [Header("몬스터 프리팹")]
+    [SerializeField] private GameObject mEnemyPrefab;
+    public GameObject EnemyPrefab { get { return mEnemyPrefab; } }
 }

@@ -21,8 +21,8 @@ public class InventoryManager : Singleton<InventoryManager>
         inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
     }
 
-    public void GetItem(int itemCode, int num)
+    public void GetItem(Item item)
     {
-        inventory.GetItem(itemCode, num);
+        inventory.GetItem(item);
     }
 }
