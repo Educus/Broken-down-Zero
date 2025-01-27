@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject myStat;
     private List<TMP_Text> statText = new List<TMP_Text>();
 
-    [SerializeField] GameObject weapon;
+    [SerializeField] private ItemSlot weaponSlots = new ItemSlot();
 
     [SerializeField] GameObject bag;
     private List<ItemSlot> itemSlots = new List<ItemSlot>();
@@ -28,6 +28,7 @@ public class Inventory : MonoBehaviour
             itemSlots.Add(child.GetComponent<ItemSlot>());
             child.GetComponent<ItemSlot>().ClearSolt();
         }
+        weaponSlots.ClearSolt();
     }
     void Update()
     {
@@ -46,13 +47,13 @@ public class Inventory : MonoBehaviour
     private void Weapon()
     {
         int itemID;
-        if (weapon.transform.childCount == 0)
+        if (weaponSlots.dbItem == null)
         {
             itemID = 10000;
         }
         else
         {
-            itemID = weapon.transform.GetChild(0).GetComponent<Item>().dbItem.ItemID;
+            itemID = weaponSlots.dbItem.ItemID;
         }
 
         string path = "PlayerImage/PlayerIdle" + itemID.ToString();

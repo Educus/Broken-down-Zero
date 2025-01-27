@@ -58,8 +58,5 @@ public class ItemSlot : MonoBehaviour
         SetColor(0);
 
         mTextCount.text = "";
-
-        Debug.Log(mdbItem == null);
-        Debug.Log(mdbItem);
     }
 }
