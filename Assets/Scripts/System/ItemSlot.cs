@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
@@ -10,9 +11,11 @@ public class ItemSlot : MonoBehaviour
     public DBItem dbItem { get { return mdbItem; } }
 
     private int mItemCount;
+    public int dbItemCount { get { return mItemCount; } }
 
     [Header("아이템 슬롯에 있는 UI 오브젝트")]
     [SerializeField] private Image mItemImage;
+    public Image itemImage { get {  return mItemImage; } }
     [SerializeField] private Image mCooltimeImage;
     [SerializeField] private TMP_Text mTextCount;
 
@@ -55,7 +58,8 @@ public class ItemSlot : MonoBehaviour
         mdbItem = null;
         mItemCount = 0;
         mItemImage.sprite = null;
-        SetColor(0);
+        // SetColor(0);
+        SetColor(1);
 
         mTextCount.text = "";
     }
