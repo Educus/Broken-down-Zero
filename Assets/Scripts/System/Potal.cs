@@ -14,6 +14,7 @@ public class Potal : Interaction
     {
         // 이후 수정
         Debug.Log("Potal 상호작용 완료");
+        GameManager.Instance.MovePlayer();
         StartCoroutine(SceneController.Instance.AsyncLoad(nextStage));
     }
 }

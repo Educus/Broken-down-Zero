@@ -5,22 +5,41 @@ using UnityEngine;
 
 public class KeySettingText : MonoBehaviour
 {
-    [SerializeField] public TMP_Text[] buttonText;
+    [SerializeField] private List<TMP_Text> keyText;
+    [SerializeField] private List<TMP_Text> buttonText;
 
+    private void Awake()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (i % 2 == 0)
+            {
+                keyText.Add(transform.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>());
+            }
+            else
+            {
+                buttonText.Add(transform.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>());
+            }
+        }
+    }
     void Start()
     {
-        KeyTextChange();
+        TextChange();
     }
 
     void Update()
     {
-        KeyTextChange();
+        TextChange();
     }
 
-    private void KeyTextChange()
+    private void TextChange()
     {
-        for (int i = 0; i < buttonText.Length - 1; i++)
+        KeyInput keyInput = new KeyInput();
+
+        for (int i = 0; i < keyText.Count; i++)
         {
+            keyInput = KeyInput.LEFT + i;
+            keyText[i].text = keyInput.ToString();
             buttonText[i].text = KeyDiction.keys[(KeyInput)i].ToString();
         }
     }

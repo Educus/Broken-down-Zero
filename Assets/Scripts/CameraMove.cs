@@ -8,6 +8,10 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
+        transform.position = GameManager.Instance.player.transform.position + new Vector3(0, 2, -10);
+
+        return;
+
         if(Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position -= new Vector3(0.001f,0,0) * speed;

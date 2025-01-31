@@ -68,6 +68,18 @@ public class Setting : Singleton<Setting>
     }
     public void ButtonExit() // 나가기?
     {
-        Debug.Log("이후 수정");
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+        }
+        else
+        {
+            StartCoroutine(SceneController.Instance.AsyncLoad(0));
+        }
+        closeCanvas();
     }
 }

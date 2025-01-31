@@ -50,6 +50,7 @@ public class KeyManager : Singleton<KeyManager>
 
     private void Update()
     {
+        if (!GameManager.Instance.isPlaying) return;
         if (GameManager.Instance.player == null) return;
         else { player = GameManager.Instance.player.GetComponent<Player>(); }
 
