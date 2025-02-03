@@ -108,23 +108,23 @@ public class KeyManager : Singleton<KeyManager>
 
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.ATTACK])) 
         {
-            player.attack = true;
+            player.Attack();
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.JUMP]))
-        { 
-            player.jump = true;
+        {
+            player.Jump();
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.DASH]))
         {
-            player.dash = true;
+            player.Dash();
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.SKILL1]))
         {
-            player.skill1 = true;
+            player.Skill1();
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.SKILL2]))
         {
-            player.skill2 = true;
+            player.Skill2();
         }
         if (Input.GetKeyDown(KeyDiction.keys[KeyInput.INVENTORY]))
         {
