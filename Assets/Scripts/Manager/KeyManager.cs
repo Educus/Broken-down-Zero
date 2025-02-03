@@ -50,11 +50,15 @@ public class KeyManager : Singleton<KeyManager>
 
     private void Update()
     {
-        if (!GameManager.Instance.isPlaying) return;
+        if (!GameManager.Instance.isPlaying)
+        {
+            IsNotPlay();
+            return;
+        }
         if (GameManager.Instance.player == null) return;
         else { player = GameManager.Instance.player.GetComponent<Player>(); }
 
-        TestInput();
+        InputKey();
     }
 
     private void OnGUI()
@@ -77,7 +81,7 @@ public class KeyManager : Singleton<KeyManager>
         key = num;
     }
 
-    private void TestInput()
+    private void InputKey()
     {
         if (Input.GetKey(KeyDiction.keys[KeyInput.LEFT]))
         { 
@@ -137,5 +141,12 @@ public class KeyManager : Singleton<KeyManager>
             InteractionManager.Instance.interaction.Interact();
         }
 
+    }
+
+    private void IsNotPlay()
+    {
+        player.left = false;
+        player.right = false;
+        player.down = false;
     }
 }

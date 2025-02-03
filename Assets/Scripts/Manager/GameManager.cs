@@ -27,12 +27,16 @@ public class GameManager : Singleton<GameManager>
 
     public void NewPlayer()
     {
+        if (player != null) return;
+
         player = Instantiate(Resources.Load<GameObject>("SaveData/Player"));
         SavePlayer();
 
     }
     public void LoadPlayer()
     {
+        if (player != null) return;
+
         if (Resources.Load<GameObject>("SaveData/Player"))
         {
             NewPlayer();

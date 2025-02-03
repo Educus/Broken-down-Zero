@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] private DBItem mDBItem;
     public DBItem dbItem { get { return mDBItem; } }
+    public DBItem indbItem { set { mDBItem = value; } }
 
     private void Start()
     {

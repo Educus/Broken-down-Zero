@@ -36,15 +36,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.isPlaying) return;
+        // if (!GameManager.Instance.isPlaying) return;
 
         IsGround();
         Move();
-        Jump();
-        Dash();
-        Attack();
-        Skill1();
-        Skill2();
     }
     
     private void GetStat()
