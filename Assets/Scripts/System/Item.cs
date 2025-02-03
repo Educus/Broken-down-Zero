@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Timeline.Actions.MenuPriority;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
@@ -11,6 +10,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] private DBItem mDBItem;
     public DBItem dbItem { get { return mDBItem; } }
+    public DBItem indbItem { set { mDBItem = value; } }
 
     private void Start()
     {

@@ -17,9 +17,17 @@ public class TitleManager : MonoBehaviour
     public void PlayingTutorial(bool play)
     {
         if (play)
+        {
+            GameManager.Instance.NewPlayer();
+            GameManager.Instance.MovePlayer();
             StartCoroutine(SceneController.Instance.AsyncLoad(1));
+        }
         else
+        {
+            GameManager.Instance.LoadPlayer();
+            GameManager.Instance.MovePlayer();
             StartCoroutine(SceneController.Instance.AsyncLoad(2));
+        }
 
     }
     public void SettingButton()

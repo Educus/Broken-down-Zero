@@ -36,15 +36,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.isPlaying) return;
+        // if (!GameManager.Instance.isPlaying) return;
 
         IsGround();
         Move();
-        Jump();
-        Dash();
-        Attack();
-        Skill1();
-        Skill2();
     }
     
     private void GetStat()
@@ -64,7 +59,7 @@ public class Player : MonoBehaviour
     public bool isGround = true;
     private void IsGround()
     {
-        int layerMask = 1 << LayerMask.NameToLayer("Ground");
+        int layerMask = 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform");
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.7f, 0.035f), 0f, Vector2.zero, 0f, layerMask);
 
         if(hit.collider != null)
@@ -98,11 +93,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool jump = false;
     public bool down = false;
-    private void Jump()
+    public void Jump()
     {
-        if (!jump) return;
         if (!isGround) return;
 
         if (down)
@@ -114,19 +107,21 @@ public class Player : MonoBehaviour
         rigid.velocity = new Vector2(rigid.velocity.x, 0);
         rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         isGround = false;
-
-        jump = false;
     }
     private void JumpingDown()
     {
         // 하단 점프
+        int layerMask = 1 << LayerMask.NameToLayer("Platform");
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.7f, 0.035f), 0f, Vector2.zero, 0f, layerMask);
+
+        if (hit.collider != null)
+        {
+            hit.collider.GetComponent<Collider2D>().isTrigger = true;
+        }
     }
 
-    public bool dash = false;
-    private void Dash()
+    public void Dash()
     {
-        if(!dash) return;
-
         int layerMask = 1 << LayerMask.NameToLayer("Ground");
         int x = (sprite.flipX) ? -1 : 1;
 
@@ -141,34 +136,22 @@ public class Player : MonoBehaviour
             transform.position += new Vector3((sprite.flipX) ? -1 : 1, 0, 0) * hit.distance;
             Debug.Log(hit.distance);
         }
-
-        dash = false;
     }
 
-    public bool attack = false;
-    private void Attack()
+    public void Attack()
     {
-        if(!attack) return;
 
         // 아직 없음
 
-        attack = false;
     }
 
-    public bool skill1 = false;
-    private void Skill1()
+    public void Skill1()
     {
-        if (!skill1) return;
-
-        skill1 = false;
 
     }
-    public bool skill2 = false;
-    private void Skill2()
+    public void Skill2()
     {
-        if (!skill2) return;
 
-        skill2 = false;
     }
     private void OnDrawGizmos()
     {
