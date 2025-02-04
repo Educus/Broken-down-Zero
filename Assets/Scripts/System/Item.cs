@@ -11,6 +11,8 @@ public class Item : MonoBehaviour
     [SerializeField] private DBItem mDBItem;
     public DBItem dbItem { get { return mDBItem; } }
     public DBItem indbItem { set { mDBItem = value; } }
+    
+    [SerializeField] private WaitForSeconds inactiveTime = new WaitForSeconds(1.5f);
 
     private void Start()
     {
@@ -35,5 +37,17 @@ public class Item : MonoBehaviour
     public void DestoyItem()
     {
         Destroy(gameObject);
+    }
+
+    public void OnSimulated()
+    {
+        StartCoroutine(IEOnSimulated());
+    }
+
+    private IEnumerator IEOnSimulated()
+    {
+        yield return inactiveTime;
+
+        GetComponent<Rigidbody2D>().simulated = true;
     }
 }

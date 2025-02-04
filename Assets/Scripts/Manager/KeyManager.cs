@@ -145,6 +145,8 @@ public class KeyManager : Singleton<KeyManager>
 
     private void IsNotPlay()
     {
+        if (player == null) return;
+
         player.left = false;
         player.right = false;
         player.down = false;
