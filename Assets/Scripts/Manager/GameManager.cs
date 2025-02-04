@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     public void StartingPlayer()
     {
         player.transform.parent = null;
+        player.transform.position = startingPoint.transform.position;
         isPlaying = true;
         player.GetComponent<Rigidbody2D>().simulated = true;
 
