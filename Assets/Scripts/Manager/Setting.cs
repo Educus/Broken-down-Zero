@@ -11,6 +11,8 @@ public class Setting : Singleton<Setting>
     [SerializeField] GameObject settingCanvas;
     [SerializeField] TMP_Text exitText;
 
+    private int buildIndex;
+
     private void Start()
     {
         menu.SetActive(false);
@@ -32,14 +34,21 @@ public class Setting : Singleton<Setting>
             }
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        buildIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (buildIndex == 0)
         {
             exitText.text = "Exit";
         }
-        else
+        else if (buildIndex <= 2)
         {
             exitText.text = "Title";
         }
+        else
+        {
+            exitText.text = "BaseCamp";
+        }
+
 
         if (menu.activeSelf)
             GameManager.Instance.isPlaying = false;
@@ -68,7 +77,7 @@ public class Setting : Singleton<Setting>
     }
     public void ButtonExit() // 나가기?
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (buildIndex == 0)
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
@@ -76,9 +85,14 @@ public class Setting : Singleton<Setting>
         Application.Quit();
 #endif
         }
-        else
+        else if(buildIndex <= 2) // 튜토리얼 ~ 마을
         {
             StartCoroutine(SceneController.Instance.AsyncLoad(0));
+        }
+        else // 던전입구 ~ 던전
+        {
+            StartCoroutine(SceneController.Instance.AsyncLoad(2));
+            InventoryManager.Instance.InventoryCalculate();
         }
         closeCanvas();
     }
