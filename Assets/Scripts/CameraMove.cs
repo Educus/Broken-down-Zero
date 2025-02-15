@@ -12,7 +12,7 @@ public class CameraMove : MonoBehaviour
     {
         target = GameManager.Instance.player.transform;
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
 
         Vector3 destination = target.position + offset;

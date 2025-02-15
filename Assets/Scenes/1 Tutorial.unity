@@ -20415,6 +20415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e55f8ebb53532429329236b4756a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 2, z: -10}
   speed: 5
 --- !u!114 &900916585
 MonoBehaviour:
