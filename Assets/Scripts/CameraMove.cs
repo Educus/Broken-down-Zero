@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+    [SerializeField] Transform target;
+    [SerializeField] Vector3 offset = new Vector3(0, 2, -10);
     [SerializeField] public float speed;
 
-    void Update()
+    private void Start()
     {
-        transform.position = GameManager.Instance.player.transform.position + new Vector3(0, 2, -10);
-
-        return;
-
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position -= new Vector3(0.001f,0,0) * speed;
-        }
-        else if(Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += new Vector3(0.001f,0,0) * speed;
-        }
+        target = GameManager.Instance.player.transform;
     }
+    void FixedUpdate()
+    {
+
+        Vector3 destination = target.position + offset;
+        transform.position = Vector3.Lerp(transform.position, destination, speed * Time.deltaTime);
+    }
+
 }

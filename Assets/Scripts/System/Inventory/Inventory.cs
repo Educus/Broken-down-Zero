@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private ItemSlot weaponSlots = new ItemSlot();
 
-    [SerializeField] GameObject bag;
+    [SerializeField] private GameObject bag;
     private List<ItemSlot> itemSlots = new List<ItemSlot>();
 
     private void Awake()
@@ -104,5 +104,21 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+    }
+
+    public List<DBItem> AllClearItemSolt()
+    {
+        List<DBItem> dbItem = new List<DBItem>();
+
+        foreach (ItemSlot slot in itemSlots)
+        {
+            if (slot.dbItem != null)
+            {
+                dbItem.Add(slot.dbItem);
+                slot.ClearSolt();
+            }
+        }
+
+        return dbItem;
     }
 }
