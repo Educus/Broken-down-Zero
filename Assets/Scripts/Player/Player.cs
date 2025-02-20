@@ -20,7 +20,9 @@ public class Player : MonoBehaviour
 
     [HideInInspector]public bool down = false;
     private float jumpPower;
+    [SerializeField] private GameObject AttackZone;
     private float power;
+    public float mPower { get { return power; } }
     public float attackDuration = 0.5f; // 공격 지속 시간
     private float attackSpeed;
     private float critical;
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
     {
         // 바닥에 닿았는지 체크 (Ground 또는 Platform 레이어에 닿았을 때만 점프 가능)
         IsGround();
+        anim.SetFloat("VelocityY", rigid.velocity.y);
 
         if (isDashing)
         {
@@ -181,6 +184,7 @@ public class Player : MonoBehaviour
             return;
         }
 
+        anim.SetTrigger("Jump");
         rigid.velocity = new Vector2(rigid.velocity.x, 0);
         rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         isGround = false;
@@ -202,18 +206,26 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
         attackTime = attackDuration;
-
+        
         // 공격 애니메이션 또는 이펙트 등을 여기서 실행 (예: 애니메이션 실행, 공격 콜백 등)
         Debug.Log("Attack Started!");
+        anim.SetTrigger("Attack_A");
 
         // 공격 중에 이동, 점프, 대쉬가 불가능하므로 다른 동작을 하지 않도록 막음
-        rigid.velocity = Vector2.zero; // 이동 중 공격 시 이동을 멈추게 설정
+        // rigid.velocity = Vector2.zero; // 이동 중 공격 시 이동을 멈추게 설정
+    }
+
+    // 공격 피해
+    public void AttackDamage()
+    {
+        AttackZone.SetActive(true);
     }
 
     // 공격 종료
-    void EndAttack()
+    public void EndAttack()
     {
         isAttacking = false;
+        AttackZone.SetActive(false);
         Debug.Log("Attack Ended!");
     }
     public void Skill1()
