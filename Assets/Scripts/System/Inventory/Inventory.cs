@@ -7,8 +7,6 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
-    
-    [SerializeField] Image myCharacter;
     [SerializeField] GameObject myStat;
     private List<TMP_Text> statText = new List<TMP_Text>();
 
@@ -57,8 +55,6 @@ public class Inventory : MonoBehaviour
         }
 
         string path = "PlayerImage/PlayerIdle" + itemID.ToString();
-
-        myCharacter.sprite = Resources.Load<Sprite>(path);
     }
 
     public void GetItem(Item item)

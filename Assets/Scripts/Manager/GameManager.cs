@@ -30,7 +30,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (player != null) return;
 
-        player = Instantiate(Resources.Load<GameObject>("SaveData/Player"));
+        player = Instantiate(prefab);
+        // player = Instantiate(Resources.Load<GameObject>("SaveData/Player"));
         SavePlayer();
 
     }
