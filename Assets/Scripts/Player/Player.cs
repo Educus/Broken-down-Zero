@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     private bool isAttacking = false;
     private float dashTime = 0f;
     private float dashCooldownTime = 0f;
+    private float playerGravity;
+
     private bool isGround = true;
 
     private Vector2 dashDirection; // 대쉬 방향 저장
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         sprite.sortingOrder = 10;
+        playerGravity = rigid.gravityScale;
 
         GetStat();
     }
@@ -87,8 +90,8 @@ public class Player : MonoBehaviour
             // 대쉬 중에도 이동의 영향을 받게 하려면 이동 방향을 계속 반영
             // 대쉬 중에는 대쉬 방향으로 날아가면서도 이동 방향을 반영
 
-            // 대쉬 진행 중, 이동 방향을 반영하여 속도를 수정
-            rigid.velocity = new Vector2(dashDirection.x * dashRange + moveDirectionX * moveSpeed, rigid.velocity.y);
+            // 대쉬 진행 중, 이동 방향을 반영하여 속도를 수정 (대쉬 1)
+            // rigid.velocity = new Vector2(dashDirection.x * dashRange + moveDirectionX * moveSpeed, rigid.velocity.y);
 
             dashTime -= Time.deltaTime;
 
@@ -96,12 +99,8 @@ public class Player : MonoBehaviour
             if (dashTime <= 0f)
             {
                 StopDash();
+                rigid.gravityScale = playerGravity;
             }
-        }
-        else
-        {
-            // 대쉬 중이 아닐 때는 좌우만 이동
-            Move();
         }
     }
     private void GetStat()
@@ -137,6 +136,9 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+        // 대쉬중일 때 움직임 금지
+        if (isDashing) return;
+
         moveDirectionX = (right && left) ? 0 : (right) ? 1 : (left) ? -1 : 0;
 
         rigid.velocity = new Vector2(moveDirectionX * moveSpeed, rigid.velocity.y);
@@ -155,6 +157,7 @@ public class Player : MonoBehaviour
 
     public void Dash()
     {
+        // 대쉬쿨타임, 대쉬중, 공격중일 때 대쉬 금지
         if (dashCooldownTime > 0f || isDashing || isAttacking)
             return;
 
@@ -162,11 +165,18 @@ public class Player : MonoBehaviour
         dashTime = dashDuration;
         dashCooldownTime = dashCooldown; // 대쉬 후 쿨타임 시작
 
+        rigid.gravityScale = 0;
+
+        rigid.velocity = new Vector2(sprite.flipX ? -1 : 1, 0).normalized * dashRange;
+
+        /*
+        // 대쉬 1
         // 대쉬는 버튼을 눌렀을 때 바라보는 방향으로 날아간다
         dashDirection = new Vector2(sprite.flipX ? -1 : 1, 0).normalized;
 
         // 대쉬 시작 시 AddForce 대신, 직접 속도 설정
         rigid.velocity = new Vector2(dashDirection.x * dashRange, rigid.velocity.y); // 수평 속도만 지정
+        */
     }
 
     void StopDash()
@@ -204,6 +214,9 @@ public class Player : MonoBehaviour
     // 공격 시작
     public void Attack()
     {
+        // 대쉬중일 때 공격 금지
+        if (isDashing) return;
+
         isAttacking = true;
         attackTime = attackDuration;
         
