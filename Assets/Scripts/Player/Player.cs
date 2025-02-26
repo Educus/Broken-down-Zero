@@ -136,22 +136,29 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        // 대쉬중일 때 움직임 금지
+        // 대쉬, 공격중일 때 움직임 금지
         if (isDashing) return;
 
-        moveDirectionX = (right && left) ? 0 : (right) ? 1 : (left) ? -1 : 0;
-
-        rigid.velocity = new Vector2(moveDirectionX * moveSpeed, rigid.velocity.y);
-
-        anim.SetInteger("Move", (int)rigid.velocity.x);
-
-        if (moveDirectionX < 0)
+        if (isAttacking)
         {
-            sprite.flipX = true;
+            rigid.velocity = new Vector2(sprite.flipX ? -0.15f : 0.15f , 0);
         }
-        else if (moveDirectionX > 0)
+        else
         {
-            sprite.flipX = false;
+            moveDirectionX = (right && left) ? 0 : (right) ? 1 : (left) ? -1 : 0;
+
+            rigid.velocity = new Vector2(moveDirectionX * moveSpeed, rigid.velocity.y);
+
+            anim.SetInteger("Move", (int)rigid.velocity.x);
+
+            if (moveDirectionX < 0)
+            {
+                sprite.flipX = true;
+            }
+            else if (moveDirectionX > 0)
+            {
+                sprite.flipX = false;
+            }
         }
     }
 
@@ -214,8 +221,8 @@ public class Player : MonoBehaviour
     // 공격 시작
     public void Attack()
     {
-        // 대쉬중일 때 공격 금지
-        if (isDashing) return;
+        // 대쉬, 공격중일 때 공격 금지
+        if (isDashing || isAttacking) return;
 
         isAttacking = true;
         attackTime = attackDuration;
@@ -223,9 +230,7 @@ public class Player : MonoBehaviour
         // 공격 애니메이션 또는 이펙트 등을 여기서 실행 (예: 애니메이션 실행, 공격 콜백 등)
         Debug.Log("Attack Started!");
         anim.SetTrigger("Attack_A");
-
-        // 공격 중에 이동, 점프, 대쉬가 불가능하므로 다른 동작을 하지 않도록 막음
-        // rigid.velocity = Vector2.zero; // 이동 중 공격 시 이동을 멈추게 설정
+        rigid.gravityScale = 0;
     }
 
     // 공격 피해
@@ -239,6 +244,7 @@ public class Player : MonoBehaviour
     {
         isAttacking = false;
         AttackZone.SetActive(false);
+        rigid.gravityScale = playerGravity;
         Debug.Log("Attack Ended!");
     }
     public void Skill1()
