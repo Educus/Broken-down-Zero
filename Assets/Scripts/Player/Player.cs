@@ -151,13 +151,17 @@ public class Player : MonoBehaviour
 
             anim.SetInteger("Move", (int)rigid.velocity.x);
 
+            float attackZoneX = Mathf.Abs(AttackZone.transform.localPosition.x);
+
             if (moveDirectionX < 0)
             {
                 sprite.flipX = true;
+                AttackZone.transform.localPosition = new Vector3(-attackZoneX, AttackZone.transform.localPosition.y);
             }
             else if (moveDirectionX > 0)
             {
                 sprite.flipX = false;
+                AttackZone.transform.localPosition = new Vector3(attackZoneX, AttackZone.transform.localPosition.y);
             }
         }
     }
