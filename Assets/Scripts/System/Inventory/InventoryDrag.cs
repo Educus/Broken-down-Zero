@@ -41,8 +41,9 @@ public class InventoryDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrop(PointerEventData eventData )// <- 드래그 된 객체
     {
-        if(ChangeSlot.Instance.currentSlot == null) return;
-        if(ChangeSlot.Instance.currentSlot.dbItem == null) return;
+        if (ChangeSlot.Instance.currentSlot == null) return;
+        if (ChangeSlot.Instance.currentSlot.dbItem == null) return;
+        if (ChangeSlot.Instance.currentSlot == slot) return;
 
         DBItem item = slot.dbItem;
         slot.ClearSolt();

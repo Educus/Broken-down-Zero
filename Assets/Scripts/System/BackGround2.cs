@@ -16,7 +16,7 @@ public class BackGround2 : MonoBehaviour
     [SerializeField] [Range(0.01f, 1.0f)] private float[] parallaxSpeed;
 
     // 현재 설정 값
-    // 0.025, 0.05, 0.2, 0.06, 0.08, 0.1, 0.4, 0.5
+    // 0.025, 0.05, 0.08, 0.06, 0.08, 0.1, 0.4, 0.5
     // 
 
     private void Awake()
