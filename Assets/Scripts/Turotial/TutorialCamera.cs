@@ -6,6 +6,8 @@ public class TutorialCamera : MonoBehaviour
 {
     private Transform target;
     private Transform startPos;
+    private float cameraSpeed = 5f;
+    [SerializeField] private Vector3 minMove;
     [SerializeField] private Vector3 maxMove;
 
     void Start()
@@ -16,6 +18,9 @@ public class TutorialCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(target.position.x, transform.position.y, -10);
+        Vector3 targetPos = new Vector3(target.position.x, transform.position.y, -10);
+        targetPos.x = Mathf.Clamp(targetPos.x, minMove.x, maxMove.x);
+
+        transform.position = Vector3.Lerp(transform.position, targetPos, cameraSpeed * Time.deltaTime);
     }
 }
