@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<IHitable>().Damage(player.mPower);
+            collision.GetComponent<IHitable>().IDamage(player.mPower);
         }
     }
 }
