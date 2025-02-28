@@ -62,15 +62,15 @@ public class Player : MonoBehaviour
         Move();
 
         // 공격 중일 때 이동을 멈추고 타이머만 진행
-        if (isAttacking)
-        {
-            attackTime -= Time.deltaTime;
-            if (attackTime <= 0f)
-            {
-                EndAttack();
-            }
-            return; // 공격 중에는 이동, 대쉬, 점프가 불가능하므로 나머지 처리 중단
-        }
+        // if (isAttacking)
+        // {
+        //     attackTime -= Time.deltaTime;
+        //     if (attackTime <= 0f)
+        //     {
+        //         EndAttack();
+        //     }
+        //     return; // 공격 중에는 이동, 대쉬, 점프가 불가능하므로 나머지 처리 중단
+        // }
 
         // 대쉬 쿨타임 처리
         if (dashCooldownTime > 0f)
@@ -151,13 +151,17 @@ public class Player : MonoBehaviour
 
             anim.SetInteger("Move", (int)rigid.velocity.x);
 
+            float attackZoneX = Mathf.Abs(AttackZone.transform.localPosition.x);
+
             if (moveDirectionX < 0)
             {
                 sprite.flipX = true;
+                AttackZone.transform.localPosition = new Vector3(-attackZoneX, AttackZone.transform.localPosition.y);
             }
             else if (moveDirectionX > 0)
             {
                 sprite.flipX = false;
+                AttackZone.transform.localPosition = new Vector3(attackZoneX, AttackZone.transform.localPosition.y);
             }
         }
     }
