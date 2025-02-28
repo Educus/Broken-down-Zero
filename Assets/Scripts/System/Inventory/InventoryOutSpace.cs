@@ -19,7 +19,6 @@ public class InventoryOutSpace : MonoBehaviour, IDropHandler
         GameObject item = Instantiate(itemObjectPrefab);
         item.transform.position = GameManager.Instance.player.transform.position + new Vector3(0,item.GetComponent<CircleCollider2D>().radius + 0.1f,0);
         item.GetComponent<Item>().indbItem = ChangeSlot.Instance.currentSlot.dbItem;
-        item.GetComponent<Rigidbody2D>().simulated = false;
         item.GetComponent<Item>().OnSimulated();
 
         ChangeSlot.Instance.currentSlot.ClearSolt();
