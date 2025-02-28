@@ -14,6 +14,8 @@ public class Item : MonoBehaviour
     
     [SerializeField] private WaitForSeconds inactiveTime = new WaitForSeconds(1.5f);
 
+    private bool isEat = true;
+
     private void Start()
     {
         GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -23,6 +25,13 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+
+        }
+
+        if (!isEat) return;
+
         if (collision.tag == "Player")
         {
             EatItem();
@@ -41,6 +50,8 @@ public class Item : MonoBehaviour
 
     public void OnSimulated()
     {
+        isEat = false;
+
         StartCoroutine(IEOnSimulated());
     }
 
@@ -48,6 +59,6 @@ public class Item : MonoBehaviour
     {
         yield return inactiveTime;
 
-        GetComponent<Rigidbody2D>().simulated = true;
+        isEat = true;
     }
 }
