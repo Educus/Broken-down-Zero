@@ -16,7 +16,7 @@ public enum PlayerStat
 }
 public class DBPlayer : Singleton<DBPlayer>
 {
-    public readonly float maxHp           = 0; // 최대체력
+    public readonly float maxHp           = 100; // 최대체력
     public readonly float power           = 35; // 공격력
     public readonly float defence         = 0; // 방어력
     public readonly float moveSpeed       = 5f; // 이동속도

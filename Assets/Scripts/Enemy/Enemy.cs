@@ -6,7 +6,9 @@ using UnityEngine.U2D;
 public class Enemy : MonoBehaviour, IHitable
 {
     [SerializeField] public float hp;
-    [SerializeField] private float attackPower;
+    [SerializeField] private float attackPower = 1;
+    public float mPower { get { return attackPower; } }
+    [SerializeField] private GameObject attackZone;
 
     private Rigidbody2D rigid;
     private SpriteRenderer sprite;
@@ -25,11 +27,6 @@ public class Enemy : MonoBehaviour, IHitable
     {
         if (!isPlaying) return;
 
-        if (hp <= 0)
-        {
-            Dead();
-        }
-
         anim.SetInteger("Move", (int)rigid.velocity.x);
     }
     public void Move(float value)
@@ -39,7 +36,19 @@ public class Enemy : MonoBehaviour, IHitable
         rigid.velocity = new Vector2(value, 0);
 
         if (value == 0) return;
-        sprite.flipX = value < 0 ? true : false;
+
+        float attackZoneX = Mathf.Abs(attackZone.transform.localPosition.x);
+
+        if (value < 0)
+        {
+            sprite.flipX = true;
+            attackZone.transform.localPosition = new Vector3(-attackZoneX, attackZone.transform.localPosition.y);
+        }
+        else
+        {
+            sprite.flipX = false;
+            attackZone.transform.localPosition = new Vector3(attackZoneX, attackZone.transform.localPosition.y);
+        }
     }
     public void Attack()
     {
@@ -48,12 +57,25 @@ public class Enemy : MonoBehaviour, IHitable
         anim.SetTrigger("Attack");
     }
 
+    public void AttackDamage()
+    {
+        attackZone.SetActive(true);
+    }
+    public void EndAttack()
+    {
+        attackZone.SetActive(false);
+    }
+
     public void IDamage(float damage)
     {
         if (!isPlaying) return;
 
-        anim.SetTrigger("Hit");
         hp -= damage;
+
+        if (hp > 0)
+            anim.SetTrigger("Hit");
+        else
+            Dead();
     }
     public void Dead()
     {
