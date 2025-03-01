@@ -29,7 +29,7 @@ public class TestEnemyController : MonoBehaviour
     }
     public void Dead()
     {
-        enemy.hp = 0;
+        enemy.GetComponent<IHitable>().IDamage(999);
     }
     public void Respawn()
     {

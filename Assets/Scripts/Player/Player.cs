@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IHitable
 {
     private Rigidbody2D rigid;
     private SpriteRenderer sprite;
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     private Vector2 dashDirection; // 대쉬 방향 저장
     private float attackTime = 0f; // 공격 시간이 남았는지 체크
 
+    private bool isPlaying = true;
 
 
     void Start()
@@ -59,6 +60,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!isPlaying) return;
+
         Move();
 
         // 공격 중일 때 이동을 멈추고 타이머만 진행
@@ -81,6 +84,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!isPlaying) return;
+
         // 바닥에 닿았는지 체크 (Ground 또는 Platform 레이어에 닿았을 때만 점프 가능)
         IsGround();
         anim.SetFloat("VelocityY", rigid.velocity.y);
@@ -263,5 +268,31 @@ public class Player : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position, new Vector2(0.7f, 0.035f));
         // Gizmos.DrawWireCube(transform.position + new Vector3(0,sprite.bounds.extents.y), new Vector2(0.5f, 1.8f));
+    }
+
+    public void IDamage(float damage)
+    {
+        if (!isPlaying) return;
+
+        hp -= damage;
+
+        if (hp > 0)
+            anim.SetTrigger("Hit");
+        else
+            Dead();
+    }
+
+    public void Dead()
+    {
+        isPlaying = false;
+        anim.SetTrigger("Dead");
+    }
+    public void Recovery()
+    {
+        if (hp > 0) return;
+
+        hp = 100;
+        isPlaying = true;
+        anim.SetTrigger("Respawn");
     }
 }
