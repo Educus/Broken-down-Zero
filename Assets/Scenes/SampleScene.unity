@@ -5482,14 +5482,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
-    - target: {fileID: 5045326871122416825, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
-      propertyPath: attackPower
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5116454719226759107, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 6068998267609193897, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.162
@@ -5528,18 +5520,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6068998267609193897, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075142911844457438, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
-      propertyPath: m_Name
-      value: Attack Zone
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075142911844457438, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7957925579073863372, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
-      propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

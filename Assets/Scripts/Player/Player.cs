@@ -131,6 +131,7 @@ public class Player : MonoBehaviour, IHitable
         {
             isGround = true;
             anim.SetBool("IsGround", true);
+            isflyAttack = true;
         }
         else
         {
@@ -202,7 +203,7 @@ public class Player : MonoBehaviour, IHitable
 
     public void Jump()
     {
-        if (!isGround) return;
+        if (!isGround || isAttacking || isDashing) return;
 
         if (down)
         {
@@ -227,11 +228,21 @@ public class Player : MonoBehaviour, IHitable
         }
     }
 
+    private bool isflyAttack = true;
     // 공격 시작
     public void Attack()
     {
         // 대쉬, 공격중일 때 공격 금지
         if (isDashing || isAttacking) return;
+
+        if (!isGround)
+        {
+            if (isflyAttack)
+            {
+                isflyAttack = false;
+            }
+            else return;
+        }
 
         isAttacking = true;
         attackTime = attackDuration;
