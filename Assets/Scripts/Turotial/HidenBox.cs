@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class HidenBox : MonoBehaviour
 {
     [SerializeField] Tilemap tilemap;
-    private float centorPosX = -13;
+    private float centorPosX = 13;
 
     private void OnTriggerStay2D(Collider2D collision)
     {

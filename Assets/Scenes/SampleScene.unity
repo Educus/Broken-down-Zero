@@ -5482,6 +5482,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 5045326871122416825, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045326871122416825, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045326871122416825, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6068998267609193897, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.162

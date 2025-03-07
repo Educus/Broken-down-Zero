@@ -7,8 +7,8 @@ public class TutorialCamera : MonoBehaviour
     private Transform target;
     private Transform startPos;
     private float cameraSpeed = 5f;
-    [SerializeField] private Vector3 minMove;
-    [SerializeField] private Vector3 maxMove;
+    [SerializeField] public Vector3 minMove;
+    [SerializeField] public Vector3 maxMove;
 
     void Start()
     {
