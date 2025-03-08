@@ -11,11 +11,17 @@ public class Enemy : MonoBehaviour, IHitable
 
     [SerializeField] private Vector3[] moveVector;
     private int nextMove = 0;
+    [SerializeField] private float interval;
+    private float intervalTime = 0f;
+    private bool isMove = false;
 
     private Rigidbody2D rigid;
     private SpriteRenderer sprite;
     private Animator anim;
     public bool isPlaying = true;
+
+    private GameObject target = null;
+    private bool isTarget = false;
 
     Vector3 originPosition;
     private void Awake()
@@ -33,20 +39,55 @@ public class Enemy : MonoBehaviour, IHitable
 
         anim.SetInteger("Move", (int)rigid.velocity.x);
 
-        if (moveVector == null) return;
-
-        if ((int)(originPosition.x + moveVector[nextMove].x) == (int)transform.position.x)
+        if (isTarget)
         {
-            if (nextMove < moveVector.Length - 1)
+            // 플레이어가 탐지 범위 안에 들어왔을 때 플레이어를 일정 거리 이내가 될 때까지 따라감(우주끝까지)
+            // 플레이어의 y축이 자신의 키 이내라면 공격 <- boxCollider2D의 Size
+            Move(target.transform.position.x - transform.position.x > 0 ? 2f : -2f);
+            return;
+        }
+
+        // target이 없을 때 자동 이동
+        // 자동이동이 없으면 enemy control로 사용가능
+        // 자동이동이 있다면 무조건 그 상태로만 움직임
+        if (moveVector.Length == 0) return;
+
+        intervalTime += Time.deltaTime;
+        if (intervalTime > interval)
+        {
+            intervalTime = 0;
+            isMove = !isMove;
+        }
+
+        if (isMove)
+        {
+            if ((int)(originPosition.x + moveVector[nextMove].x) == (int)transform.position.x)
             {
-                nextMove += 1;
+                if (nextMove < moveVector.Length - 1)
+                {
+                    nextMove += 1;
+                }
+                else
+                    nextMove = 0;
             }
             else
-                nextMove = 0;
+            {
+                Move(originPosition.x + moveVector[nextMove].x - transform.position.x > 0 ? 1 : -1);
+            }
         }
         else
         {
-            Move(originPosition.x + moveVector[nextMove].x - transform.position.x > 0 ? 1 : -1);
+            Move(0f);
+        }
+    }
+
+    public void FindTarget(GameObject getTarget)
+    {
+        target = getTarget;
+
+        if (target != null)
+        {
+            isTarget = true;
         }
     }
     public void Move(float value)

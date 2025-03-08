@@ -88,11 +88,13 @@ public class Setting : Singleton<Setting>
         else if(buildIndex <= 2) // 튜토리얼 ~ 마을
         {
             StartCoroutine(SceneController.Instance.AsyncLoad(0));
+            GameManager.Instance.MovePlayer();
         }
         else // 던전입구 ~ 던전
         {
             StartCoroutine(SceneController.Instance.AsyncLoad(2));
             InventoryManager.Instance.InventoryCalculate();
+            GameManager.Instance.MovePlayer();
         }
         closeCanvas();
     }

@@ -26303,7 +26303,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 90
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -42449,6 +42449,10 @@ PrefabInstance:
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045326871122416825, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: interval
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5045326871122416825, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: moveVector.Array.size
