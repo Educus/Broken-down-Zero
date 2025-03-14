@@ -116,7 +116,11 @@ public class Enemy : MonoBehaviour, IHitable
     public void Move(float value)
     {
         if (!isPlaying) return;
-        if (isAttack) return;
+        if (isAttack)
+        {
+            rigid.velocity = new Vector2 (0f, 0f);
+            return;
+        }
 
         if (value == 0) return;
 

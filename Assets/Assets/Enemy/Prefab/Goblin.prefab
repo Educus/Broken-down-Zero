@@ -292,7 +292,9 @@ MonoBehaviour:
   hitZone: {fileID: 7075142911844457438}
   searchZone: {fileID: 5905851990121802645}
   attackZone: {fileID: 1243785561931720559}
-  moveVector: []
+  moveVector:
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
   interval: 2
   isPlaying: 1
 --- !u!1 &5905851990121802645
