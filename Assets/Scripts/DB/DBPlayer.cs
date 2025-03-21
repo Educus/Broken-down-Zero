@@ -14,6 +14,7 @@ public enum PlayerStat
     CRITICAL_MULTIPLIER,
     AVOID
 }
+
 public class DBPlayer : Singleton<DBPlayer>
 {
     public readonly float maxHp           = 100; // 최대체력
@@ -27,4 +28,5 @@ public class DBPlayer : Singleton<DBPlayer>
     public readonly float criticalDamage  = 0; // 크리티컬 피해량
     public readonly float avoidance       = 0; // 회피율
 
+    [HideInInspector] public string[] playerStatKorean = {"체력", "공격력", "방어력", "이동속도", "공격속도", "치명타확률", "치명타피해량", "회피율"};
 }

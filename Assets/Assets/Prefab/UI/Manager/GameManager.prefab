@@ -47,4 +47,4 @@ MonoBehaviour:
   player: {fileID: 0}
   startingPoint: {fileID: 0}
   prefab: {fileID: 4968654376638323430, guid: dbf199cb94bf9b44bae3a82f87d5b880, type: 3}
-  isPlaying: 1
+  isPlaying: 0

@@ -142,7 +142,7 @@ public class Player : MonoBehaviour, IHitable
 
     private void Move()
     {
-        if (isPlaying) return;
+        if (!isPlaying) return;
 
         // 대쉬, 공격중일 때 움직임 금지
         if (isDashing) return;
@@ -176,7 +176,7 @@ public class Player : MonoBehaviour, IHitable
 
     public void Dash()
     {
-        if (isPlaying) return;
+        if (!isPlaying) return;
 
         // 대쉬쿨타임, 대쉬중, 공격중일 때 대쉬 금지
         if (dashCooldownTime > 0f || isDashing || isAttacking)
@@ -207,7 +207,7 @@ public class Player : MonoBehaviour, IHitable
 
     public void Jump()
     {
-        if (isPlaying) return;
+        if (!isPlaying) return;
 
         if (!isGround || isAttacking || isDashing) return;
 
@@ -238,7 +238,7 @@ public class Player : MonoBehaviour, IHitable
     // 공격 시작
     public void Attack()
     {
-        if (isPlaying) return;
+        if (!isPlaying) return;
 
         // 대쉬, 공격중일 때 공격 금지
         if (isDashing || isAttacking) return;
@@ -277,12 +277,12 @@ public class Player : MonoBehaviour, IHitable
     }
     public void Skill1()
     {
-        if (isPlaying) return;
+        if (!isPlaying) return;
 
     }
     public void Skill2()
     {
-        if (isPlaying) return;
+        if (!isPlaying) return;
 
     }
     private void OnDrawGizmos()

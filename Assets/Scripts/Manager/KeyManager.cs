@@ -84,7 +84,7 @@ public class KeyManager : Singleton<KeyManager>
     private void InputKey()
     {
         if (Input.GetKey(KeyDiction.keys[KeyInput.LEFT]))
-        { 
+        {
             player.left = true;
         }
         if (Input.GetKeyUp(KeyDiction.keys[KeyInput.LEFT]))
