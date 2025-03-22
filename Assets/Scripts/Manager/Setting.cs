@@ -38,15 +38,15 @@ public class Setting : Singleton<Setting>
 
         if (buildIndex == 0)
         {
-            exitText.text = "Exit";
+            exitText.text = "끝내기";
         }
         else if (buildIndex <= 2)
         {
-            exitText.text = "Title";
+            exitText.text = "타이틀로";
         }
         else
         {
-            exitText.text = "BaseCamp";
+            exitText.text = "거점으로";
         }
 
 
@@ -69,7 +69,8 @@ public class Setting : Singleton<Setting>
 
     public void Button1() // 버튼1
     {
-        Debug.Log("이후 수정");
+        menu.SetActive(false);
+        closeCanvas();
     }
     public void ButtonSetting() // 키세팅, 볼륨조절
     {

@@ -20,15 +20,13 @@ public class TutorialBackGround : MonoBehaviour
         camera = GameObject.Find("Main Camera (1)").transform;
         cameraStartPos = camera.position;
 
-        GameObject backGround = new GameObject();
-        backGround = transform.GetChild(0).gameObject;
-        materials = backGround.GetComponent<Renderer>().material;
+        materials = transform.GetChild(0).gameObject.GetComponent<Renderer>().material;
     }
 
     void LateUpdate()
     {
         distance = camera.position.x - cameraStartPos.x;
-        transform.position = new Vector3(camera.position.x, 0, 0);
+        transform.position = new Vector3(camera.position.x, 0, 10);
         materials.SetTextureOffset("_MainTex", new Vector2(distance, 0) * parallaxSpeed / 10);
 
     }

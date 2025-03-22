@@ -37,7 +37,9 @@ public class Enemy : MonoBehaviour, IHitable
 
         originPosition = transform.position;
         hp = 100;
+        transform.parent = GameObject.Find("EnemyManagement").transform;
     }
+
     void Update()
     {
         if (!isPlaying) return;
@@ -173,6 +175,8 @@ public class Enemy : MonoBehaviour, IHitable
             anim.SetTrigger("Hit");
         else
             Dead();
+
+        EndAttack();
     }
     public void Dead()
     {

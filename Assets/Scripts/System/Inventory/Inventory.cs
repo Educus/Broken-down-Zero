@@ -39,7 +39,8 @@ public class Inventory : MonoBehaviour
         for(int i = 0; i < statText.Count; i++) 
         { 
             // 이후 수정
-            statText[i].text = Enum.GetName(typeof(PlayerStat), i) + " : " + "001"; // 실험용
+            // statText[i].text = Enum.GetName(typeof(PlayerStat), i) + " : " + "001"; // 실험용
+            statText[i].text = DBPlayer.Instance.playerStatKorean[i] + "\n" + "001";
         }
     }
     private void Weapon()

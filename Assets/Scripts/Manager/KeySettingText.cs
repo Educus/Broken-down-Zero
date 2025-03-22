@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
 public class KeySettingText : MonoBehaviour
 {
     [SerializeField] private List<TMP_Text> keyText;
     [SerializeField] private List<TMP_Text> buttonText;
+
+    private string[] KeyInputKoreans = {"왼쪽", "오른쪽", "아래", "공격", "점프", "대쉬", "스킬1", "스킬2", "인벤토리", "상호작용"};
 
     private void Awake()
     {
@@ -39,8 +42,15 @@ public class KeySettingText : MonoBehaviour
         for (int i = 0; i < keyText.Count; i++)
         {
             keyInput = KeyInput.LEFT + i;
-            keyText[i].text = keyInput.ToString();
+            keyText[i].text = KeyInputKoreans[i];
             buttonText[i].text = KeyDiction.keys[(KeyInput)i].ToString();
         }
+    }
+
+    private string KeyInputKorean(KeyInput input)
+    {
+        string a = "a";
+
+        return a;
     }
 }
