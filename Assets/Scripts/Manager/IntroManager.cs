@@ -8,18 +8,25 @@ using UnityEngine.UI;
 public class IntroManager : MonoBehaviour
 {
     [SerializeField] GameObject[] introBackground;
+    [SerializeField] GameObject[] targetText;
+    [SerializeField] GameObject textBackGround;
     [SerializeField] TMP_Text monologueText;
     [SerializeField] GameObject pushKeyImage;
+    [SerializeField] Image changeBackGround;
 
     private int backGroundNum;
-    private int num = 0;
+    private int introNum = 0;
+    private int targetNum = 0;
 
     [HideInInspector] private bool actionIntro = true;
     private bool isCoroutineRunning = false;
+    private bool isChangeBackGround = false;
+
+    private bool isPlay = true;
 
     void Start()
     {
-        num = 0;
+        introNum = 81-3;
 
         foreach (GameObject backGround in introBackground)
         {
@@ -30,8 +37,9 @@ public class IntroManager : MonoBehaviour
 
         monologueText.text = "";
         pushKeyImage.SetActive(false);
+        changeBackGround.gameObject.SetActive(false);
 
-        StartCoroutine(IIntroText(textIntroList[num + 2]));
+        TypingText();
     }
 
     void Update()
@@ -40,7 +48,6 @@ public class IntroManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F))
         {
-            ChangeBackGround();
             TypingText();
         }
     }
@@ -48,7 +55,7 @@ public class IntroManager : MonoBehaviour
 
     private void ChangeBackGround()
     {
-        int backNum = int.Parse(textIntroList[num]);
+        int backNum = int.Parse(textIntroList[introNum]);
 
         if(backGroundNum != backNum)
         {
@@ -56,16 +63,39 @@ public class IntroManager : MonoBehaviour
             introBackground[backNum].SetActive(true);
 
             backGroundNum = backNum;
-
         }
     }
 
+
     private void TypingText()
     {
-        string textIntro = textIntroList[num + 2];
+        if (!isPlay) return;
+
+        if (introNum >= textIntroList.Length)
+        {
+            isPlay = false;
+            StartCoroutine(INextScene());
+        }
+
+        string textIntro = textIntroList[introNum + 2];
+        
+        // textIntro가 ""일때는 화면 전환
+        if (textIntro == "")
+        {
+            if (isChangeBackGround) return;
+
+            monologueText.text = "";
+            textBackGround.SetActive(false);
+            pushKeyImage.SetActive(false);
+
+            StartCoroutine(IChangeBackGround());
+            return;
+        }
 
         if (isCoroutineRunning)
         {
+            // 텍스트가 출력 중 일 때
+            // 출력하는 코루틴을 멈추고, 모두 출력
             StopCoroutine(StartCoroutine(IIntroText(textIntro)));
             isCoroutineRunning = false;
 
@@ -74,9 +104,80 @@ public class IntroManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(IIntroText(textIntro));
+            // 텍스트가 출력 중이 아닐 때
+            // 0일때는 독백, 1일때는 특정 인물 대사
+            // 특정 인물일 때 대사의 위치는 새로운 배열로
+            if (textIntroList[introNum + 1] == "0")
+            {
+                textBackGround.SetActive(true);
+                monologueText.rectTransform.position = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+                monologueText.fontSize = 40;
+            }
+            else if (textIntroList[introNum + 1] == "1")
+            {
+                textBackGround.SetActive(false);
+                monologueText.rectTransform.position = targetText[targetNum].transform.position;
+                targetNum++;
+                monologueText.fontSize = 30;
+            }
+            else return;
+
             pushKeyImage.SetActive(false);
+            StartCoroutine(IIntroText(textIntro));
         }
+    }
+
+    IEnumerator INextScene()
+    {
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(SceneController.Instance.AsyncLoad(2));
+    }
+    IEnumerator IChangeBackGround()
+    {
+        isChangeBackGround = true;
+
+        yield return StartCoroutine(FadeIn());
+
+        isChangeBackGround = false;
+        ChangeBackGround();
+        introNum += 3;
+
+        yield return StartCoroutine(FadeOut());
+
+        TypingText();
+    }
+    IEnumerator FadeIn()
+    {
+        changeBackGround.gameObject.SetActive(true);
+
+        Color color = changeBackGround.color;
+
+        color.a = 0;
+
+        while (color.a <= 1.0f)
+        {
+            color.a += Time.deltaTime;
+
+            changeBackGround.color = color;
+
+            yield return null;
+        }
+    }
+    IEnumerator FadeOut()
+    {
+        Color color = changeBackGround.color;
+
+        while (color.a >= 0.0f)
+        {
+            color.a -= Time.deltaTime;
+
+            changeBackGround.color = color;
+
+            yield return null;
+        }
+
+        changeBackGround.gameObject.SetActive(false);
     }
 
     IEnumerator IIntroText(string value)
@@ -87,14 +188,14 @@ public class IntroManager : MonoBehaviour
         foreach (char c in value) 
         {
             monologueText.text += c;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
 
             if (!isCoroutineRunning) break;
         }
 
         yield return null;
 
-        num += 3;
+        introNum += 3;
         isCoroutineRunning = false;
         if (value != "") pushKeyImage.SetActive(true);
     }
@@ -128,7 +229,8 @@ public class IntroManager : MonoBehaviour
             "5", "0", "“그것들은 정체가 무엇이고 무엇을 위해 나를 포함한 사람들을 납치한 것일까?”",
             "5", "0", "같은 생각만한 채 시간을 보낼 뿐이었다.",
             "6", "1", "",
-            "6", "0", "나는 생각하는 것 조차 멈추던 어느 날 갑자기\n폭발하는 굉음과 시끄러운 소리와 함께 이 통의 유리가깨지는 걸 보게 되었다."
+            "6", "0", "나는 생각하는 것 조차 멈추던 어느 날 갑자기\n폭발하는 굉음과 시끄러운 소리와 함께 이 통의 유리가 깨지는 걸 보게 되었다.",
+            "7", "1", ""
         };
 
 

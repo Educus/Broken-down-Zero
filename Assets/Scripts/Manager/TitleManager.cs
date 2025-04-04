@@ -26,7 +26,7 @@ public class TitleManager : MonoBehaviour
         {
             GameManager.Instance.LoadPlayer();
             GameManager.Instance.MovePlayer();
-            StartCoroutine(SceneController.Instance.AsyncLoad(2));
+            StartCoroutine(SceneController.Instance.AsyncLoad(3));
         }
 
     }

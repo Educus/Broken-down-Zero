@@ -1389,6 +1389,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3718321526837188002, guid: b9ab961612c90644da052fc5290d314e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106228206610420386, guid: b9ab961612c90644da052fc5290d314e, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106228206610420386, guid: b9ab961612c90644da052fc5290d314e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106228206610420386, guid: b9ab961612c90644da052fc5290d314e, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4778884751660064808, guid: b9ab961612c90644da052fc5290d314e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1534,6 +1550,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4087834967257562543, guid: 5d292902a41cff243a8145d0c617d6bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6609722453326187354, guid: 5d292902a41cff243a8145d0c617d6bd, type: 3}
       propertyPath: m_Name
       value: InteractionManager
