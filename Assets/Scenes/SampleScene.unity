@@ -4318,7 +4318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883ca82457b06bc4aabc5d59c395bbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStage: 0
+  nextStage: 6
 --- !u!1 &1876848890
 GameObject:
   m_ObjectHideFlags: 0
@@ -6102,10 +6102,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4087834967257562543, guid: 5d292902a41cff243a8145d0c617d6bd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d292902a41cff243a8145d0c617d6bd, type: 3}
 --- !u!1001 &8241713533540861535
 PrefabInstance:
