@@ -26,7 +26,7 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
-        introNum = 81-3;
+        introNum = 0;
 
         foreach (GameObject backGround in introBackground)
         {

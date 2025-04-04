@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ResolutionManager : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class ResolutionManager : MonoBehaviour
 
     private List<Resolution> resolutions = new List<Resolution>();
     private int optimalResolutionIndex = 0;
+
+    private bool fullScreen = false;
 
     private void Start()
     {
@@ -49,10 +50,15 @@ public class ResolutionManager : MonoBehaviour
 
         SetResolution(optimalResolutionIndex);
     }
+    public void ChangeFullScreen(bool value)
+    {
+        fullScreen = value;
+        Screen.fullScreen = fullScreen;
+    }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, false);
+        Screen.SetResolution(resolution.width, resolution.height, fullScreen);
     }
 }
