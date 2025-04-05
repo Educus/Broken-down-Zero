@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ResolutionManager : MonoBehaviour
+public class ResolutionManager : Singleton<ResolutionManager>
 {
     public TMP_Dropdown resolutionDropdown;
 
@@ -48,7 +48,7 @@ public class ResolutionManager : MonoBehaviour
         resolutionDropdown.value = optimalResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        SetResolution(optimalResolutionIndex);
+        // SetResolution(optimalResolutionIndex);
     }
     public void ChangeFullScreen(bool value)
     {
