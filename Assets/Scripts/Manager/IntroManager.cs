@@ -75,6 +75,8 @@ public class IntroManager : MonoBehaviour
         {
             isPlay = false;
             StartCoroutine(INextScene());
+
+            return;
         }
 
         string textIntro = textIntroList[introNum + 2];
@@ -125,6 +127,11 @@ public class IntroManager : MonoBehaviour
             pushKeyImage.SetActive(false);
             StartCoroutine(IIntroText(textIntro));
         }
+    }
+
+    public void NextStage()
+    {
+        StartCoroutine(SceneController.Instance.AsyncLoad(2));
     }
 
     IEnumerator INextScene()

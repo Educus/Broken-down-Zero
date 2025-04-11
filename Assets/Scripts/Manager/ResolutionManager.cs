@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ResolutionManager : MonoBehaviour
+public class ResolutionManager : Singleton<ResolutionManager>
 {
     public TMP_Dropdown resolutionDropdown;
 

@@ -35,11 +35,12 @@ public class InventoryDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (slot.dbItem == null) return;
 
+        Debug.Log("endDrag");
         ChangeSlot.Instance.SetColor(0);
         ChangeSlot.Instance.currentSlot = null;
     }
 
-    public void OnDrop(PointerEventData eventData )// <- 드래그 된 객체
+    public void OnDrop(PointerEventData eventData)// <- 드래그 된 객체
     {
         if (ChangeSlot.Instance.currentSlot == null) return;
         if (ChangeSlot.Instance.currentSlot.dbItem == null) return;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemDrop : MonoBehaviour
 {
     [SerializeField] private GameObject itemObjectPrefab;
+    [SerializeField] private GameObject[] nextText;
     [SerializeField] DBItem[] dropItems;
     
     public void DropItems()
@@ -22,5 +23,8 @@ public class ItemDrop : MonoBehaviour
             item.GetComponent<Item>().indbItem = dropItems[i];
             item.GetComponent<Item>().OnSimulated();
         }
+
+        nextText[0].SetActive(true);
+        nextText[1].SetActive(true);
     }
 }

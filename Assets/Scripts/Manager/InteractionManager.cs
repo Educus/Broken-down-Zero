@@ -16,7 +16,15 @@ public class InteractionManager : Singleton<InteractionManager>
         else
         {
             pushKeyUI.SetActive(true);
-            pushKeyUI.transform.position = interaction.transform.position + new Vector3(1,0,0);
+
+            if (interaction.transform.Find("Position") == null)
+            {
+                pushKeyUI.transform.position = interaction.transform.position + new Vector3(1,0,0);
+            }
+            else
+            {
+                pushKeyUI.transform.position = interaction.transform.Find("Position").position;
+            }
         }
 
     }

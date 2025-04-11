@@ -104,7 +104,6 @@ public class Player : MonoBehaviour, IHitable
             if (dashTime <= 0f)
             {
                 StopDash();
-                rigid.gravityScale = playerGravity;
             }
         }
     }
@@ -203,6 +202,7 @@ public class Player : MonoBehaviour, IHitable
     void StopDash()
     {
         isDashing = false;
+        rigid.gravityScale = playerGravity;
     }
 
     public void Jump()
@@ -308,7 +308,9 @@ public class Player : MonoBehaviour, IHitable
     public void Dead()
     {
         isPlaying = false;
+        StopDash();
         anim.SetTrigger("Dead");
+        rigid.velocity = new Vector2(0, 0);
     }
     public void Recovery()
     {
