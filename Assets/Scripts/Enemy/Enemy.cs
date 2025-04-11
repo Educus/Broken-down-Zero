@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour, IHitable
 
         originPosition = transform.position;
         hp = 100;
-        transform.parent = GameObject.Find("EnemyManagement").transform;
+        transform.parent = GameObject.Find("EnemyManagement")?.transform;
     }
 
     void Update()
