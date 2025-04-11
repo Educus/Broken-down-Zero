@@ -9,6 +9,8 @@ public class EnemyHitZone : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            if (collision.GetComponent<IHitable>() == null) return;
+
             collision.GetComponent<IHitable>().IDamage(enemy.mPower);
         }
     }

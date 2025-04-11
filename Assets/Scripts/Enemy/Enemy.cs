@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour, IHitable
     private GameObject target = null;
     private bool isTarget = false;
     private bool isAttack = false;
+    private bool isDamage = false;
 
     Vector3 originPosition;
     private void Awake()
@@ -118,7 +119,7 @@ public class Enemy : MonoBehaviour, IHitable
     public void Move(float value)
     {
         if (!isPlaying) return;
-        if (isAttack)
+        if (isAttack || isDamage)
         {
             rigid.velocity = new Vector2 (0f, 0f);
             return;
@@ -150,7 +151,9 @@ public class Enemy : MonoBehaviour, IHitable
     {
         if (!isPlaying) return;
         if (isAttack) return;
-
+        if (isDamage) return;
+        
+        rigid.velocity = new Vector2(0f, 0f);
         isAttack = true;
         anim.SetTrigger("Attack");
     }
@@ -169,7 +172,9 @@ public class Enemy : MonoBehaviour, IHitable
     {
         if (!isPlaying) return;
 
+        rigid.velocity = new Vector2(0f, 0f);
         hp -= damage;
+        isDamage = true;
 
         if (hp > 0)
             anim.SetTrigger("Hit");
@@ -177,6 +182,10 @@ public class Enemy : MonoBehaviour, IHitable
             Dead();
 
         EndAttack();
+    }
+    public void IEndDamage()
+    {
+        isDamage = false;
     }
     public void Dead()
     {

@@ -48,7 +48,7 @@ public class ResolutionManager : Singleton<ResolutionManager>
         resolutionDropdown.value = optimalResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        // SetResolution(optimalResolutionIndex);
+        SetResolution(optimalResolutionIndex);
     }
     public void ChangeFullScreen(bool value)
     {
