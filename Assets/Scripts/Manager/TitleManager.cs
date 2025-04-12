@@ -20,12 +20,14 @@ public class TitleManager : MonoBehaviour
         {
             GameManager.Instance.NewPlayer();
             GameManager.Instance.MovePlayer();
+            GameManager.Instance.tutorial = true;
             StartCoroutine(SceneController.Instance.AsyncLoad(1));
         }
         else
         {
             GameManager.Instance.LoadPlayer();
             GameManager.Instance.MovePlayer();
+            GameManager.Instance.tutorial = false;
             StartCoroutine(SceneController.Instance.AsyncLoad(3));
         }
 

@@ -35,7 +35,6 @@ public class InventoryDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (slot.dbItem == null) return;
 
-        Debug.Log("endDrag");
         ChangeSlot.Instance.SetColor(0);
         ChangeSlot.Instance.currentSlot = null;
     }

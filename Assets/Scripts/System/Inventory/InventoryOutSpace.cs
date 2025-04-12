@@ -27,13 +27,10 @@ public class InventoryOutSpace : MonoBehaviour, IDropHandler
 
     private IEnumerator DropItem(PointerEventData eventData)
     {
-        Debug.Log("드롭아이템");
-
         int result = 0;
         ItemSlot itemSlot = ChangeSlot.Instance.currentSlot;
 
         yield return StartCoroutine(itemWarning.DropItem(value => result = value));
-        Debug.Log("삭제아이템");
 
         Debug.Log(result);
 
