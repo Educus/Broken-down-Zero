@@ -10,7 +10,7 @@ public class TutorialTrap : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.transform.position = respawn.transform.position;
+            collision.GetComponent<IHitable>().IDamage(999);
         }
     }
 }

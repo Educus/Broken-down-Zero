@@ -21,5 +21,7 @@ public class TutorialPotal : Interaction
         camera.minMove = new Vector3(range[0], 0, 0);
         camera.maxMove = new Vector3(range[1], 0, 0);
         camera.transform.position = new Vector2(range[0], camera.transform.position.y);
+
+        GameManager.Instance.tutorial = false;
     }
 }

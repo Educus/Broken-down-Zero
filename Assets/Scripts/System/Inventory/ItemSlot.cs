@@ -19,11 +19,26 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private Image mCooltimeImage;
     [SerializeField] private TMP_Text mTextCount;
 
+    [Header("아이템 유무에 따른 이미지")]
+    [SerializeField] private Image slotImage;
+    [SerializeField] private Sprite OnItem;
+    [SerializeField] private Sprite OffItem;
+
+    private void Start()
+    {
+        SetColor(0);
+    }
+
     private void SetColor(float alpha)
     {
         Color color = mItemImage.color;
         color.a = alpha;
         mItemImage.color = color;
+
+        if (alpha == 1)
+            slotImage.sprite = OnItem;
+        else if (alpha == 0)
+            slotImage.sprite = OffItem;
     }
 
     public void AddItem(DBItem item, int count = 1)
@@ -58,8 +73,7 @@ public class ItemSlot : MonoBehaviour
         mdbItem = null;
         mItemCount = 0;
         mItemImage.sprite = null;
-        // SetColor(0);
-        SetColor(1);
+        SetColor(0);
 
         mTextCount.text = "";
     }

@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IHitable
 {
-    [SerializeField] public float hp;
-    [SerializeField] private float attackPower = 1;
+    [SerializeField] private DBEnemy dbEnemy;
+    [SerializeField] private Slider hpBar;
+
+    private float maxHp;
+    private float hp;
+    private float attackPower;
     public float mPower { get { return attackPower; } }
+
     [SerializeField] private GameObject hitZone;
     [SerializeField] private GameObject searchZone;
     [SerializeField] private GameObject attackZone;
@@ -37,9 +43,15 @@ public class Enemy : MonoBehaviour, IHitable
         anim = GetComponent<Animator>();
 
         originPosition = transform.position;
-        hp = 100;
+        maxHp = dbEnemy.EnemyHp;
+        hp = maxHp;
+        hpBar.value = (float)hp / maxHp;
+        attackPower = dbEnemy.EnemyATK;
+        hpBar.gameObject.SetActive(false);
+
         transform.parent = GameObject.Find("EnemyManagement")?.transform;
     }
+
 
     void Update()
     {
@@ -145,7 +157,7 @@ public class Enemy : MonoBehaviour, IHitable
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, 0.3f, 0), flipX * transform.right, 1f, LayerMask.GetMask("Ground"));
         if(hit.collider != null) return;
 
-        rigid.velocity = new Vector2(value, 0);
+        rigid.velocity = new Vector2(value, rigid.velocity.y);
     }
     public void Attack()
     {
@@ -173,8 +185,11 @@ public class Enemy : MonoBehaviour, IHitable
         if (!isPlaying) return;
 
         rigid.velocity = new Vector2(0f, 0f);
-        hp -= damage;
         isDamage = true;
+        hp -= damage;
+
+        hpBar.gameObject.SetActive(true);
+        hpBar.value = hp / maxHp;
 
         if (hp > 0)
             anim.SetTrigger("Hit");
@@ -191,6 +206,7 @@ public class Enemy : MonoBehaviour, IHitable
     {
         isPlaying = false;
         rigid.velocity = Vector3.zero;
+        hpBar.gameObject.SetActive(false);
         anim.SetTrigger("Dead");
         // gameObject.SetActive(false);
     }

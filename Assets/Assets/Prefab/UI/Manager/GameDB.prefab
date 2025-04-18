@@ -44,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403a6cceb4e5fea4799b7010411e1028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStatKorean:
+  - "\uCCB4\uB825"
+  - "\uACF5\uACA9\uB825"
+  - "\uBC29\uC5B4\uB825"
+  - "\uC774\uB3D9\uC18D\uB3C4"
+  - "\uACF5\uACA9\uC18D\uB3C4"
+  - "\uCE58\uBA85\uD0C0\uD655\uB960"
+  - "\uCE58\uBA85\uD0C0\uD53C\uD574\uB7C9"
+  - "\uD68C\uD53C\uC728"

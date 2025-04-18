@@ -9,6 +9,10 @@ public class DBEnemy : ScriptableObject
     [SerializeField] private int mEnemyID;
     public int EnemyID { get { return mEnemyID; } }
 
+    [Header("몬스터 체력")]
+    [SerializeField] private int mEnemyHp;
+    public int EnemyHp { get { return mEnemyHp; } }
+
     [Header("몬스터 공격력")]
     [SerializeField] private float mEnemyATK;
     public float EnemyATK { get { return mEnemyATK; } }

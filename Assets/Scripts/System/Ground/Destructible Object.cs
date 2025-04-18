@@ -7,6 +7,7 @@ public class DestructibleObject : MonoBehaviour, IHitable
     // 피해 받았을 때 파괴되어 사라지는 오브젝트
     // 몇번 피해를 받을것인지?
     private SpriteRenderer spriteRender;
+    [SerializeField] private GameObject startingPoint;
 
     private int hitNum = 2;
     private bool isHitting = false;
@@ -84,6 +85,8 @@ public class DestructibleObject : MonoBehaviour, IHitable
         }
         
         gameObject.SetActive(false);
+
+        GameManager.Instance.startingPoint = startingPoint;
 
         yield return null;
 

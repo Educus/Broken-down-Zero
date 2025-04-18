@@ -256,7 +256,6 @@ public class Player : MonoBehaviour, IHitable
         attackTime = attackDuration;
         
         // 공격 애니메이션 또는 이펙트 등을 여기서 실행 (예: 애니메이션 실행, 공격 콜백 등)
-        Debug.Log("Attack Started!");
         anim.SetTrigger("Attack_A");
         rigid.gravityScale = 0;
     }
@@ -273,7 +272,6 @@ public class Player : MonoBehaviour, IHitable
         isAttacking = false;
         AttackZone.SetActive(false);
         rigid.gravityScale = playerGravity;
-        Debug.Log("Attack Ended!");
     }
     public void Skill1()
     {
@@ -311,6 +309,9 @@ public class Player : MonoBehaviour, IHitable
         StopDash();
         anim.SetTrigger("Dead");
         rigid.velocity = new Vector2(0, 0);
+
+        if (GameManager.Instance.tutorial)
+            StartCoroutine(GameManager.Instance.Recovery(3));
     }
     public void Recovery()
     {

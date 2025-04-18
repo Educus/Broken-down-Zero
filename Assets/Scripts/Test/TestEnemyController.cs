@@ -33,7 +33,6 @@ public class TestEnemyController : MonoBehaviour
     }
     public void Respawn()
     {
-        enemy.hp = 100;
         enemy.isPlaying = true;
         enemy.gameObject.SetActive(true);
         Attack();
