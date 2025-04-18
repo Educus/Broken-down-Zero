@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2a293657051fe41aebce254d9f0472, type: 3}
   m_Name: 0_Goblin
   m_EditorClassIdentifier: 
-  mEnemyID: 0
-  mEnemyATK: 1
-  mEnemyDEF: 1
-  mEnemySPEED: 1
-  mEnemyATKSPEED: 1
+  mEnemyID: 20001
+  mEnemyATK: 30
+  mEnemyDEF: 5
+  mEnemySPEED: 2
+  mEnemyATKSPEED: 2
   mEnemyImage: {fileID: 0}
   mEnemyPrefab: {fileID: 0}

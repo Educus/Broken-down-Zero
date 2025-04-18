@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2a293657051fe41aebce254d9f0472, type: 3}
   m_Name: 1_RobotBoss
   m_EditorClassIdentifier: 
-  mEnemyID: 1
+  mEnemyID: 21001
   mEnemyATK: 1
   mEnemyDEF: 1
   mEnemySPEED: 1
