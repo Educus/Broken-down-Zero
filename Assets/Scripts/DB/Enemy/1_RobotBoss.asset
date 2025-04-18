@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 1_RobotBoss
   m_EditorClassIdentifier: 
   mEnemyID: 21001
-  mEnemyATK: 1
-  mEnemyDEF: 1
-  mEnemySPEED: 1
-  mEnemyATKSPEED: 1
+  mEnemyHp: 10000
+  mEnemyATK: 100
+  mEnemyDEF: 100
+  mEnemySPEED: 2
+  mEnemyATKSPEED: 2
   mEnemyImage: {fileID: 0}
   mEnemyPrefab: {fileID: 0}

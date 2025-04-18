@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 0_Goblin
   m_EditorClassIdentifier: 
   mEnemyID: 20001
+  mEnemyHp: 100
   mEnemyATK: 30
   mEnemyDEF: 5
   mEnemySPEED: 2

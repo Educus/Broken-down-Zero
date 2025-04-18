@@ -310,7 +310,8 @@ public class Player : MonoBehaviour, IHitable
         anim.SetTrigger("Dead");
         rigid.velocity = new Vector2(0, 0);
 
-        StartCoroutine(GameManager.Instance.Recovery(3));
+        if (GameManager.Instance.tutorial)
+            StartCoroutine(GameManager.Instance.Recovery(3));
     }
     public void Recovery()
     {
