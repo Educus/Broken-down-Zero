@@ -151,4 +151,27 @@ public class KeyManager : Singleton<KeyManager>
         player.right = false;
         player.down = false;
     }
+
+    public void KeyReset()
+    {
+        KeyCode[] defaultKeys = new KeyCode[]
+        {
+            KeyCode.LeftArrow,
+            KeyCode.RightArrow,
+            KeyCode.DownArrow,
+            KeyCode.X,
+            KeyCode.C,
+            KeyCode.Z,
+            KeyCode.A,
+            KeyCode.S,
+            KeyCode.E,
+            KeyCode.F
+        };
+
+        KeyDiction.keys.Clear();
+        for (int i = 0; i < (int)KeyInput.KEYCOUNT; i++)
+        {
+            KeyDiction.keys.Add((KeyInput)i, defaultKeys[i]);
+        }
+    }
 }

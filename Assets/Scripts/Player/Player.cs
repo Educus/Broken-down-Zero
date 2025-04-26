@@ -8,7 +8,10 @@ public class Player : MonoBehaviour, IHitable
     private SpriteRenderer sprite;
     private Animator anim;
 
+    private float maxHp;
+    public float playerMaxHp { get { return maxHp; } }
     private float hp;
+    public float playerHp { get { return hp; } }
     private float defence;
     private float avoidance;
 
@@ -109,6 +112,7 @@ public class Player : MonoBehaviour, IHitable
     }
     private void GetStat()
     {
+        maxHp = DBPlayer.Instance.maxHp;
         hp = DBPlayer.Instance.maxHp;
         power = DBPlayer.Instance.power;
         defence = DBPlayer.Instance.defence;
@@ -184,6 +188,7 @@ public class Player : MonoBehaviour, IHitable
         isDashing = true;
         dashTime = dashDuration;
         dashCooldownTime = dashCooldown; // 대쉬 후 쿨타임 시작
+        StartCoroutine(GameUIManager.Instance.DashCoolTime(dashCooldown));
 
         rigid.gravityScale = 0;
 
