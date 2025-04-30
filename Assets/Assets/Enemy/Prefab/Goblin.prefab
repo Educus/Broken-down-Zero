@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789b97ff77e7f64fa6675e271d26ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5045326871122416825}
+  enemy: {fileID: 4006928436290609427}
 --- !u!1 &1836189089484120637
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 3697018917817029387}
   - component: {fileID: 6199996560922333089}
   - component: {fileID: 1795346611786541158}
-  - component: {fileID: 5045326871122416825}
+  - component: {fileID: 4006928436290609427}
   m_Layer: 9
   m_Name: Goblin
   m_TagString: Enemy
@@ -529,7 +529,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5045326871122416825
+--- !u!114 &4006928436290609427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4543878941863385966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770d07a8bfcf75e479f81ed39ccdcca4, type: 3}
+  m_Script: {fileID: 11500000, guid: 45627e54256be704ab50bce4084214cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dbEnemy: {fileID: 11400000, guid: 3235b03f17180f2468a1460380fb7f6d, type: 2}
@@ -546,10 +546,8 @@ MonoBehaviour:
   hitZone: {fileID: 7075142911844457438}
   searchZone: {fileID: 5905851990121802645}
   attackZone: {fileID: 1243785561931720559}
-  moveVector:
-  - {x: -1, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  interval: 2
+  moveVector: []
+  interval: 0
   isPlaying: 1
 --- !u!1 &5205979786513083848
 GameObject:
@@ -761,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5102f7b15239f34b8aec02cc7572e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5045326871122416825}
+  enemy: {fileID: 4006928436290609427}
 --- !u!1 &6219804853724291784
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,4 +886,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a36d47d5aed06438c2f43f1e16c28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5045326871122416825}
+  enemy: {fileID: 4006928436290609427}
