@@ -124,17 +124,16 @@ public abstract class Boss : MonoBehaviour, IHitable
     {
         if (!isPlaying) return;
 
-        rigid.velocity = new Vector2(0f, 0f);
+        StartCoroutine(IEDamage());
+        
         nowHp -= damage;
-
-        hpBar.gameObject.SetActive(true);
         hpBar.value = nowHp / maxHp;
+    }
 
-        if (nowHp > 0)
-            anim.SetTrigger("Hit");
-        else
-            Dead();
-
-        EndAttack();
+    private IEnumerator IEDamage()
+    {
+        sprite.color = new Color(1f, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = new Color(1f, 1f, 1f);
     }
 }

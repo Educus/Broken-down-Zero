@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossAttackZone : MonoBehaviour
+public class Boss_SingleDamage : MonoBehaviour
 {
     private Player player;
 
