@@ -1,0 +1,686 @@
+fileFormatVersion: 2
+guid: 06923239ba102844292e8f463fd9dfbf
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c1622941ef80c40ae154f52c1228bc
+      internalID: 1251684733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bcf7a6bb25d6e345b6167c342c79ca9
+      internalID: -1106437904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b719e613a4869d84d9d39b1ff5ad5058
+      internalID: -184283101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804252313a237284f892da409e4340a0
+      internalID: -1056540503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aadf4cef9c50874dbd33241f62902c1
+      internalID: 1010205732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 448
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8e0662d98d8f94a979fee3dec57b5c
+      internalID: -385447044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a87aac13e137b4a8008f42f3991620
+      internalID: 221595954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 336
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0271925925b55fc42a5cc4fc1cf090c7
+      internalID: 465116425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 336
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 426d536fc7bd6d442bf61645e11512c0
+      internalID: -1795703828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 336
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a320cda86a665247803a27bb53dcd6b
+      internalID: -653263203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 336
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0287f634b06c34cbfc48d81e4abe75
+      internalID: 923828214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 336
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9bdfa19691e2994797ce7ecb0c432a6
+      internalID: -1659415028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caaf84bdecfdbf647856ec748386a430
+      internalID: -1459304111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bbaa6a759e4a140891caa563c25a6f
+      internalID: -1905923411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 224
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5816782a33aca4fae6ce0e45f26b76
+      internalID: 1442903635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 224
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2aa67f1ee1ee34c8103c0681ccd39b
+      internalID: -1788069491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 224
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d72959e1d012794e949afe0ff868c8f
+      internalID: 1481653625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 224
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 219adf886a1d4ff4dad22b5aa6ec7ba5
+      internalID: 722926679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16817e4155bc90f41853ca9789a2edd0
+      internalID: -324243811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3a395d5c55d6d4387df1d2f8dc9aef
+      internalID: -1013295314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 112
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3954b6e384e294ea1e93618619cc31
+      internalID: -1167819208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 112
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae32810eb5a729147bca1cfba5f6faa7
+      internalID: 614015856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 112
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68968306dbb4444a9474f4a3665790e
+      internalID: -2019769972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 112
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161c0a443d9977441a6598bc7400b868
+      internalID: 1249362076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e133e174871154cb7144242d93ef26
+      internalID: 1440145869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attackA-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cae3bf85fe37324495c7a8f751a06ca
+      internalID: 228012252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      boss_attackA-Sheet_0: 1251684733
+      boss_attackA-Sheet_1: -1106437904
+      boss_attackA-Sheet_10: 923828214
+      boss_attackA-Sheet_11: -1659415028
+      boss_attackA-Sheet_12: -1459304111
+      boss_attackA-Sheet_13: -1905923411
+      boss_attackA-Sheet_14: 1442903635
+      boss_attackA-Sheet_15: -1788069491
+      boss_attackA-Sheet_16: 1481653625
+      boss_attackA-Sheet_17: 722926679
+      boss_attackA-Sheet_18: -324243811
+      boss_attackA-Sheet_19: -1013295314
+      boss_attackA-Sheet_2: -184283101
+      boss_attackA-Sheet_20: -1167819208
+      boss_attackA-Sheet_21: 614015856
+      boss_attackA-Sheet_22: -2019769972
+      boss_attackA-Sheet_23: 1249362076
+      boss_attackA-Sheet_24: 1440145869
+      boss_attackA-Sheet_25: 228012252
+      boss_attackA-Sheet_3: -1056540503
+      boss_attackA-Sheet_4: 1010205732
+      boss_attackA-Sheet_5: -385447044
+      boss_attackA-Sheet_6: 221595954
+      boss_attackA-Sheet_7: 465116425
+      boss_attackA-Sheet_8: -1795703828
+      boss_attackA-Sheet_9: -653263203
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

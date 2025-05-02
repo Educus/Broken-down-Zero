@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour, IHitable
+public abstract class Enemy : MonoBehaviour, IHitable
 {
     [SerializeField] private DBEnemy dbEnemy;
     [SerializeField] private Slider hpBar;
 
-    private float maxHp;
-    private float hp;
-    private float attackPower;
+    protected float maxHp;
+    protected float hp;
+    protected float attackPower;
+    protected float speed;
     public float mPower { get { return attackPower; } }
 
-    [SerializeField] private GameObject hitZone;
-    [SerializeField] private GameObject searchZone;
-    [SerializeField] private GameObject attackZone;
+    [SerializeField] private GameObject hitZone;    // 타격 범위
+    [SerializeField] private GameObject searchZone; // 감지 범위
+    [SerializeField] private GameObject attackZone; // 공격시작 범위
 
     [SerializeField] private Vector3[] moveVector;
     private int nextMove = 0;
@@ -42,21 +43,22 @@ public class Enemy : MonoBehaviour, IHitable
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        originPosition = transform.position;
-        maxHp = dbEnemy.EnemyHp;
-        hp = maxHp;
-        hpBar.value = (float)hp / maxHp;
-        attackPower = dbEnemy.EnemyATK;
-        hpBar.gameObject.SetActive(false);
+        originPosition = transform.position;    // 원래 위치
+        maxHp = dbEnemy.EnemyHp;                // 데이터베이스에서 최대 체력 가져오기
+        hp = maxHp;                             // 현재 체력
+        hpBar.value = (float)hp / maxHp;        // 체력바 비율
+        attackPower = dbEnemy.EnemyATK;         // 데이터베이스에서 공격력 가져오기
+        hpBar.gameObject.SetActive(false);      // 체력바 비활성화(피격시 활성화)
+        speed = dbEnemy.EnemySPEED;
 
-        transform.parent = GameObject.Find("EnemyManagement")?.transform;
+        transform.parent = GameObject.Find("EnemyManagement")?.transform;   // EnemyManagement가 있으면 거기에 모든 Enemy 모으기
     }
 
 
-    void Update()
+    protected virtual void Update()
     {
         if (!isPlaying) return;
-        ActionRoutine();
+        ActionRoutine();    // 플레이어 감지 확인
 
         anim.SetInteger("Move", (int)rigid.velocity.x);
 
@@ -115,9 +117,9 @@ public class Enemy : MonoBehaviour, IHitable
     private void ActionRoutine()
     {
         bool isTarget = target == null ? false : true;
-
-        searchZone.SetActive(!isTarget);
-        attackZone.SetActive(isTarget);
+                                            // 감지가 되었으면
+        searchZone.SetActive(!isTarget);    // 감지범위 비활성화
+        attackZone.SetActive(isTarget);     // 공격범위 활성화
     }
     public void FindTarget(GameObject getTarget)
     {
@@ -128,7 +130,7 @@ public class Enemy : MonoBehaviour, IHitable
             isTarget = true;
         }
     }
-    public void Move(float value)
+    public virtual void Move(float value)
     {
         if (!isPlaying) return;
         if (isAttack || isDamage)
@@ -159,7 +161,7 @@ public class Enemy : MonoBehaviour, IHitable
 
         rigid.velocity = new Vector2(value, rigid.velocity.y);
     }
-    public void Attack()
+    public virtual void Attack()
     {
         if (!isPlaying) return;
         if (isAttack) return;

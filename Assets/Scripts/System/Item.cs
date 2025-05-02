@@ -20,7 +20,7 @@ public class Item : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().gravityScale = 0;
         GetComponent<CircleCollider2D>().isTrigger = true;
-        GetComponent<SpriteRenderer>().sortingOrder = 7;
+        GetComponent<SpriteRenderer>().sortingOrder = 12;
         GetComponent<SpriteRenderer>().sprite = mDBItem.ItemImage;
     }
 
