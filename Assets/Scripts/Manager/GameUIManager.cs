@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +11,7 @@ public class GameUIManager : Singleton<GameUIManager>
     [SerializeField] Canvas UIcanvas;
     [Header ("Player UI")]
     [SerializeField] Slider sliderHp;
+    [SerializeField] TMP_Text hpText;
     [SerializeField] Image dashImage;
     [SerializeField] Image dashCool;
     [SerializeField] Image skill1Image;
@@ -18,11 +21,6 @@ public class GameUIManager : Singleton<GameUIManager>
 
     private float playerMaxHp;
     private float playerHp;
-
-    void Start()
-    {
-        
-    }
 
     void LateUpdate()
     {
@@ -38,6 +36,7 @@ public class GameUIManager : Singleton<GameUIManager>
         playerHp = player.playerHp;
 
         sliderHp.value = playerHp / playerMaxHp;
+        hpText.text = Math.Clamp(playerHp, 0,playerMaxHp).ToString() + "/" + playerMaxHp.ToString();
     }
 
     public IEnumerator DashCoolTime(float time)

@@ -150,7 +150,7 @@ public class TutorialBoss : Boss
     protected override void AttackD() // 주먹질
     {
         LookPlayer();
-        anim.SetTrigger("Punch");
+        anim.SetTrigger("AttackD_1");
         attackCoroutine = StartCoroutine(IESpriteA(atkD_sprite));
     }
     public void AttackD_2()
@@ -172,6 +172,11 @@ public class TutorialBoss : Boss
 
             yield return null;
         }
+    }
+
+    public void EndAttack() // 공격 애니메이션 끝에 공격 종료 알림
+    {
+        isAttacking = false;
     }
 
     protected override void Dead()
