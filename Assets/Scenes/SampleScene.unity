@@ -4697,7 +4697,6 @@ MonoBehaviour:
   hpBar: {fileID: 0}
   isPlaying: 0
   isMove: 0
-  isAttack: 0
   atkA_Hit: {fileID: 1757793012}
   atkB_Shot: {fileID: 1164670341}
   atkB_Hit: {fileID: 1329423038}

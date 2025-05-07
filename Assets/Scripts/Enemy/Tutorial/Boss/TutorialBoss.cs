@@ -30,22 +30,32 @@ public class TutorialBoss : Boss
         atkC_sprite = atkC_Hit.GetComponent<SpriteRenderer>();
         atkD_sprite = atkD_Hit.GetComponent<SpriteRenderer>();
 
-        isAttacking = true;
+        // 임시
+        isPlaying = true;
+        isMove = true;
+        anim.SetBool("Move", true);
+        // 
     }
+    // 플레이어가 보스존에 들어왔을 때 isPlaying, isMove값 true로 바꾸기
     protected override void Update()
     {
         anim.SetInteger("VelocityX", (int)rigid.velocity.x);
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            AttackC();
-        }
         if(isPlaying) // 살아있을 때
         {
             if (!isAttacking) // 공격중이 아닐 때
             {
                 Move(speed);
                 Attack();
+
+                // 공격 타이머
+                attackTimer -= Time.deltaTime;
+
+                if (attackTimer < 0)
+                {
+                    attackTimer = atkSpeed;
+                    isAttack = true;
+                }
             }
         }
         else // 살아있지 않을 때
@@ -58,17 +68,30 @@ public class TutorialBoss : Boss
     {
         if (isMove) // 움직이는가?
         {
-            LookPlayer();
+            if (rush)
+            {
+                rigid.velocity = new Vector2(sprite.flipX ? rushSpeed : -rushSpeed, 0f);
+            }
+            else
+            {
+                LookPlayer();
 
+                if (Mathf.Abs(transform.position.x - player.transform.position.x) > 1) // 플레이어와의 거리가 *이상일 때 움직임
+                {
+                    rigid.velocity = new Vector2(sprite.flipX ? value : -value, 0f);
+                }
+                else
+                {
+                    rigid.velocity = new Vector2(0f, 0f);
+                }
+            }
         }
-        else if (rush)
-        {
-            rigid.velocity = new Vector2(sprite.flipX ? rushSpeed : -rushSpeed, 0f);
-        }
-        else 
-        {
-            rigid.velocity = new Vector2 (0f, 0f);
-        }
+    }
+
+
+    private void LookPlayer()
+    {
+        sprite.flipX = transform.position.x - player.transform.position.x >= 0 ? false : true;
     }
 
     // 보스 패턴
@@ -78,12 +101,37 @@ public class TutorialBoss : Boss
     // 플레이어와 일정거리 이상일 때 플레이어를 향해 움직인다 <- 만들예정
     // 일정시간마다 기술을 사용한다 <- 0
     // 기술을 움직이지 않고 제자리에서 사용한다 <- 0
-
-    private void LookPlayer()
+    // 단 기술 C 돌진과 주먹질D의 경우가...
+    protected override void Attack()
     {
-        sprite.flipX = transform.position.x - player.transform.position.x >= 0 ? false : true;
+        if (!isAttack) return;  // 공격명령이 안들어왔다면 return;
+        if (isAttacking) return; // 공격중이라면 return;
+
+        isAttack = false;
+        isAttacking = true;
+        Move(0f); // 공격 시작 전 멈추기
+
+        // int value = Random.Range(0, 4); // 무작위 패턴 공격 <- 지금은 동일 확률
+        int value = 2;
+
+        switch (value)
+        {
+            case 0:
+                AttackA();
+                break;
+            case 1:
+                AttackB();
+                break;
+            case 2:
+                AttackC();
+                break;
+            case 3:
+                AttackD();
+                break;
+            default:
+                break;
+        }
     }
-        
     protected override void AttackA() // 지면 폭발
     {
         LookPlayer();
@@ -127,23 +175,24 @@ public class TutorialBoss : Boss
         LookPlayer();
         anim.SetBool("Rush", true);
         attackCoroutine = StartCoroutine(IESpriteA(atkC_sprite));
-
     }
-    bool rush = false;
+    private bool rush = false;
     public void AttackC_2()
     {
         StopCoroutine(attackCoroutine);
         atkC_sprite.color = new Color(1, 0, 0, 0f);
 
         atkC_Damage.GetComponent<Boss_SingleCollisionDamage>().damage = atk;
-        rigid.velocity = new Vector2(5f, 0);
-
+        atkC_Damage.gameObject.SetActive(true);
         rush = true;
+
+        Move(20f);
     }
     public void AttackC_End()
     {
         anim.SetBool("Rush", false);
         atkC_Damage.GetComponent<Boss_SingleCollisionDamage>().damage = 0;
+        atkC_Damage.gameObject.SetActive(false);
         
         rush = false;
     }
@@ -174,14 +223,9 @@ public class TutorialBoss : Boss
         }
     }
 
-    public void EndAttack() // 공격 애니메이션 끝에 공격 종료 알림
-    {
-        isAttacking = false;
-    }
-
     protected override void Dead()
     {
-        
+        // 불사
     }
 
 
