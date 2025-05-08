@@ -30,13 +30,14 @@ public class TutorialBoss : Boss
         atkC_sprite = atkC_Hit.GetComponent<SpriteRenderer>();
         atkD_sprite = atkD_Hit.GetComponent<SpriteRenderer>();
 
-        // 임시
+    }
+    // 플레이어가 보스존에 들어왔을 때 isPlaying, isMove값 true로 바꾸기
+    public void Playing()
+    {
         isPlaying = true;
         isMove = true;
         anim.SetBool("Move", true);
-        // 
     }
-    // 플레이어가 보스존에 들어왔을 때 isPlaying, isMove값 true로 바꾸기
     protected override void Update()
     {
         anim.SetInteger("VelocityX", (int)rigid.velocity.x);
@@ -56,12 +57,20 @@ public class TutorialBoss : Boss
                     attackTimer = atkSpeed;
                     isAttack = true;
                 }
+
+                // 공격이 끝난 후 플레이어가 죽었을 때
+                if (!GameManager.Instance.tutorial && player.playerHp <= 0)
+                {
+                    GetComponent<TutorialEndEvent>().enabled = true;
+                    GetComponent<TutorialBoss>().enabled = false;
+                }
             }
         }
         else // 살아있지 않을 때
         {
             Move(0f);
         }
+
 
     }
     protected override void Move(float value)
@@ -76,7 +85,7 @@ public class TutorialBoss : Boss
             {
                 LookPlayer();
 
-                if (Mathf.Abs(transform.position.x - player.transform.position.x) > 1) // 플레이어와의 거리가 *이상일 때 움직임
+                if (Mathf.Abs(transform.position.x - player.transform.position.x) > 1.5f) // 플레이어와의 거리가 *이상일 때 움직임
                 {
                     rigid.velocity = new Vector2(sprite.flipX ? value : -value, 0f);
                 }
@@ -111,8 +120,7 @@ public class TutorialBoss : Boss
         isAttacking = true;
         Move(0f); // 공격 시작 전 멈추기
 
-        // int value = Random.Range(0, 4); // 무작위 패턴 공격 <- 지금은 동일 확률
-        int value = 2;
+        int value = Random.Range(0, 4); // 무작위 패턴 공격 <- 지금은 동일 확률
 
         switch (value)
         {
@@ -126,7 +134,7 @@ public class TutorialBoss : Boss
                 AttackC();
                 break;
             case 3:
-                AttackD();
+                StartCoroutine(IEAttackD());
                 break;
             default:
                 break;
@@ -196,9 +204,23 @@ public class TutorialBoss : Boss
         
         rush = false;
     }
+    private IEnumerator IEAttackD()
+    {
+        while(Mathf.Abs(transform.position.x - player.transform.position.x) > 3)
+        {
+            Move(speed);
+            yield return null;
+        }
+
+        Move(0);
+        AttackD();
+
+        yield return null;
+    }
     protected override void AttackD() // 주먹질
     {
         LookPlayer();
+
         anim.SetTrigger("AttackD_1");
         attackCoroutine = StartCoroutine(IESpriteA(atkD_sprite));
     }

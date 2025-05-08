@@ -316,7 +316,17 @@ public class Player : MonoBehaviour, IHitable
         rigid.velocity = new Vector2(0, 0);
 
         if (GameManager.Instance.tutorial)
+        {
             StartCoroutine(GameManager.Instance.Recovery(3));
+        }
+        else if (SceneController.Instance.NowScene() == 2) // 튜토리얼 보스에게 죽었을 때 이벤트
+        {
+            // 빈칸
+        }
+        else // 튜토리얼 이외에서 죽었을 때 이벤트
+        {
+
+        }
     }
     public void Recovery()
     {
