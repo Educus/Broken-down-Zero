@@ -17,6 +17,6 @@ MonoBehaviour:
   mEnemyATK: 60
   mEnemyDEF: 100
   mEnemySPEED: 2
-  mEnemyATKSPEED: 5
+  mEnemyATKSPEED: 2
   mEnemyImage: {fileID: 0}
   mEnemyPrefab: {fileID: 0}

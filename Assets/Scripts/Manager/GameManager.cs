@@ -68,7 +68,7 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
-
+            player.GetComponent<Player>().Recovery();
         }
     }
 }

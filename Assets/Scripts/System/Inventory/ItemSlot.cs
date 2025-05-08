@@ -24,7 +24,7 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private Sprite OnItem;
     [SerializeField] private Sprite OffItem;
 
-    private void Start()
+    private void Awake()
     {
         SetColor(0);
     }

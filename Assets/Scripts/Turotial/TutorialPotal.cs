@@ -7,6 +7,7 @@ public class TutorialPotal : Interaction
     [SerializeField] private GameObject outPotal;
     [SerializeField] private int[] range;
     [SerializeField] private TutorialCamera camera;
+    [SerializeField] private TutorialBoss boss;
 
     private void Start()
     {
@@ -23,5 +24,7 @@ public class TutorialPotal : Interaction
         camera.transform.position = new Vector2(range[0], camera.transform.position.y);
 
         GameManager.Instance.tutorial = false;
+
+        boss.Playing();
     }
 }

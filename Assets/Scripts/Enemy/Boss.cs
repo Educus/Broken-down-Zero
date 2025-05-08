@@ -26,10 +26,9 @@ public abstract class Boss : MonoBehaviour, IHitable
     public bool isPlaying = false; // 생존유무(외부용)
     [HideInInspector]
     public bool isMove = false; // 이동유무(외부용)
-    [HideInInspector]
-    public bool isAttack = false; // 공격유무(외부용)
 
     protected float attackTimer;
+    protected bool isAttack = false; // 공격 트리거
     protected bool isAttacking = false; // 공격중(내부용)
 
     private void Awake()
@@ -63,6 +62,7 @@ public abstract class Boss : MonoBehaviour, IHitable
 
             // 공격 타이머 (atkSpeed마다 공격)
             attackTimer -= Time.deltaTime;
+
             if (attackTimer < 0)
             {
                 attackTimer = atkSpeed; 

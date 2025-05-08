@@ -8,6 +8,10 @@ public class SceneController : Singleton<SceneController>
 {
     [SerializeField] Image loadImage;
 
+    public int NowScene()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
     public IEnumerator FadeIn()
     {
         loadImage.gameObject.SetActive(true);
