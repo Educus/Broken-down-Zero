@@ -42659,9 +42659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e55f8ebb53532429329236b4756a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 2, z: -10}
-  speed: 5
+  minMove: {x: 0, y: 0, z: 0}
+  maxMove: {x: 0, y: 0, z: 0}
 --- !u!114 &900916585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46699,7 +46698,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.78431374, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -47985,17 +47984,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3512542730856429595, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
-      propertyPath: parallaxSpeed.Array.data[2]
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 8742526302559374866, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
       propertyPath: m_Name
       value: BackGrounds
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742526302559374866, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8943040472050482603, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
       propertyPath: m_LocalPosition.x
