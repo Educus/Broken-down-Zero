@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,6 +9,8 @@ public class Inventory : MonoBehaviour
     private List<TMP_Text> statText = new List<TMP_Text>();
 
     [SerializeField] private ItemSlot weaponSlots = new ItemSlot();
+    public ItemSlot getWeapon { get { return weaponSlots; } }
+
 
     [SerializeField] private GameObject bag;
     private List<ItemSlot> itemSlots = new List<ItemSlot>();

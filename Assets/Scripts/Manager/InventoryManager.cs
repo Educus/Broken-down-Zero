@@ -5,6 +5,8 @@ using UnityEngine;
 public class InventoryManager : Singleton<InventoryManager>
 {
     [SerializeField] private Inventory inventory;
+    public Inventory inven { get { return inventory; } }
+
     private void Start()
     {
         inventory.gameObject.SetActive(false);
