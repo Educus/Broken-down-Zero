@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbNPC : NPC
+public class EngineerNPC : NPC
 {
-    [SerializeField] OrbShop orbShop;
+    [SerializeField] GameObject playerStat;
     public override void Interact()
     {
-        orbShop.ActiveShop();
+        playerStat.SetActive(!playerStat.activeSelf);
     }
 }

@@ -14,6 +14,11 @@ public class ShopListItem : MonoBehaviour
 
     void Start()
     {
+        SetData();
+    }
+
+    public void SetData()
+    {
         itemImage.sprite = dbItem.ItemImage;
         itemName.text = dbItem.ItemName;
         itemPrice.text = dbItem.ItemPrice.ToString();
