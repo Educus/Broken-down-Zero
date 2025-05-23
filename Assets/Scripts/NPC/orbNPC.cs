@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class orbNPC : NPC
 {
-    [SerializeField] GameObject orbShop;
+    [SerializeField] OrbShop orbShop;
     public override void Interact()
     {
-        orbShop.SetActive(!orbShop.activeSelf);
+        orbShop.ActiveShop();
     }
 }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 0_Orb_GreatSword2 1
   m_EditorClassIdentifier: 
   mItemID: 10003
+  mItemName: "3\uB2E8\uAC80"
+  mItemPrice: 500
   mCanOverlap: 0
   mIsInteractivity: 0
   mIsConsumable: 0
@@ -20,3 +22,12 @@ MonoBehaviour:
   mItemType: 2
   mItemImage: {fileID: 21300000, guid: 944a15ff7a8ca794eb622d88fbed7670, type: 3}
   mItemPrefab: {fileID: 0}
+  mItemHp: 0
+  mItemPower: 2
+  mItemDefence: 0
+  mItemSpeed: 0
+  mItemATKSpeed: 1
+  mItemCri: 3
+  mItemCriDamage: 0
+  mItemAvoid: 0
+  mHpZen: 0

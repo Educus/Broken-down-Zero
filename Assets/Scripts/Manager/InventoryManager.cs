@@ -5,7 +5,9 @@ using UnityEngine;
 public class InventoryManager : Singleton<InventoryManager>
 {
     [SerializeField] private Inventory inventory;
+    [SerializeField] private RectTransform inventoryBackGround;
     public Inventory inven { get { return inventory; } }
+    [HideInInspector] public bool onGui = false;
 
     private void Start()
     {
@@ -19,6 +21,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void OpenInven()
     {
+        // if (onGui) { inventoryBackGround.position = new Vector2(-100, 0); }
+
         inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
     }
 

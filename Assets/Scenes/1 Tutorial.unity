@@ -3612,6 +3612,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin (1)
@@ -44089,6 +44101,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin (3)
@@ -46010,6 +46038,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin
@@ -47360,6 +47400,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin (2)

@@ -104,7 +104,7 @@ public class TutorialEndEvent : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(SceneController.Instance.AsyncLoad(4));
+        StartCoroutine(SceneController.Instance.AsyncLoad(3));
         player.Recovery();
     }
 }
