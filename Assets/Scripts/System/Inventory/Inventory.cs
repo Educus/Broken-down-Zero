@@ -5,9 +5,6 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] GameObject myStat;
-    private List<TMP_Text> statText = new List<TMP_Text>();
-
     [SerializeField] private ItemSlot weaponSlots = new ItemSlot();
     public ItemSlot getWeapon { get { return weaponSlots; } }
 
@@ -19,10 +16,6 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        foreach (Transform child in myStat.transform)
-        {
-            statText.Add(child.GetComponent<TMP_Text>());
-        }
         foreach (Transform child in bag.transform)
         {
             itemSlots.Add(child.GetComponent<ItemSlot>());
@@ -32,19 +25,8 @@ public class Inventory : MonoBehaviour
     }
     void Update()
     {
-        Stat();
         Weapon();
         ManaStone();
-    }
-
-    private void Stat()
-    {
-        for(int i = 0; i < statText.Count; i++) 
-        { 
-            // 이후 수정
-            // statText[i].text = Enum.GetName(typeof(PlayerStat), i) + " : " + "001"; // 실험용
-            statText[i].text = DBPlayer.Instance.playerStatKorean[i] + "\n" + "001";
-        }
     }
     private void Weapon()
     {
