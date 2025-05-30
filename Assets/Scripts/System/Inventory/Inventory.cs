@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject bag;
     private List<ItemSlot> itemSlots = new List<ItemSlot>();
 
+    [SerializeField] private TMP_Text nowManaStone;
+
     private void Awake()
     {
         foreach (Transform child in myStat.transform)
@@ -32,6 +34,7 @@ public class Inventory : MonoBehaviour
     {
         Stat();
         Weapon();
+        ManaStone();
     }
 
     private void Stat()
@@ -57,7 +60,10 @@ public class Inventory : MonoBehaviour
 
         string path = "PlayerImage/PlayerIdle" + itemID.ToString();
     }
-
+    private void ManaStone()
+    {
+        nowManaStone.text = GameManager.Instance.manaStone.ToString();
+    }
     public void GetItem(Item item)
     {
         if (!item.dbItem.CanOverlap)
