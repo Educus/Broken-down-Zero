@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3075126727496485081}
   - component: {fileID: 137791532451508500}
+  - component: {fileID: 3021699404741499262}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,4 +48,19 @@ MonoBehaviour:
   player: {fileID: 0}
   startingPoint: {fileID: 0}
   prefab: {fileID: 4968654376638323430, guid: dbf199cb94bf9b44bae3a82f87d5b880, type: 3}
+  tutorial: 0
+  manaStone: 0
+  gear: 0
   isPlaying: 0
+--- !u!114 &3021699404741499262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137488066724830631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1e2a229b3918c4a88dc2e3c858884d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
