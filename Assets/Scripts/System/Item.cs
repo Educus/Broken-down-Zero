@@ -12,9 +12,10 @@ public class Item : MonoBehaviour
     public DBItem dbItem { get { return mDBItem; } }
     public DBItem indbItem { set { mDBItem = value; } }
     
-    [SerializeField] private WaitForSeconds inactiveTime = new WaitForSeconds(0.75f);
+    [SerializeField] private WaitForSeconds inactiveTime = new WaitForSeconds(0.25f);
 
     private bool isEat = true;
+    private bool isData = false;
 
     private void Start()
     {
@@ -43,9 +44,17 @@ public class Item : MonoBehaviour
     {
         InventoryManager.Instance.GetItem(this);
     }
+    public void SetItem(DBItem dbItem, bool isData)
+    {
+        if (mDBItem == null)
+            mDBItem = dbItem;
 
+        this.isData = isData;
+    }
     public void DestoyItem()
     {
+        if (isData) return;
+
         Destroy(gameObject);
     }
 

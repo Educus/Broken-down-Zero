@@ -1,26 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] GameObject myStat;
-    private List<TMP_Text> statText = new List<TMP_Text>();
-
     [SerializeField] private ItemSlot weaponSlots = new ItemSlot();
+    public ItemSlot getWeapon { get { return weaponSlots; } }
+
 
     [SerializeField] private GameObject bag;
     private List<ItemSlot> itemSlots = new List<ItemSlot>();
 
+    [SerializeField] private TMP_Text nowManaStone;
+
     private void Awake()
     {
-        foreach (Transform child in myStat.transform)
-        {
-            statText.Add(child.GetComponent<TMP_Text>());
-        }
         foreach (Transform child in bag.transform)
         {
             itemSlots.Add(child.GetComponent<ItemSlot>());
@@ -30,18 +25,8 @@ public class Inventory : MonoBehaviour
     }
     void Update()
     {
-        Stat();
         Weapon();
-    }
-
-    private void Stat()
-    {
-        for(int i = 0; i < statText.Count; i++) 
-        { 
-            // 이후 수정
-            // statText[i].text = Enum.GetName(typeof(PlayerStat), i) + " : " + "001"; // 실험용
-            statText[i].text = DBPlayer.Instance.playerStatKorean[i] + "\n" + "001";
-        }
+        ManaStone();
     }
     private void Weapon()
     {
@@ -57,7 +42,10 @@ public class Inventory : MonoBehaviour
 
         string path = "PlayerImage/PlayerIdle" + itemID.ToString();
     }
-
+    private void ManaStone()
+    {
+        nowManaStone.text = GameManager.Instance.manaStone.ToString();
+    }
     public void GetItem(Item item)
     {
         if (!item.dbItem.CanOverlap)

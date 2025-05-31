@@ -3612,6 +3612,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin (1)
@@ -18039,7 +18051,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 5.12, y: 4.48}
+    oldSize: {x: 10.24, y: 5.12}
     newSize: {x: 4.64, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -18110,7 +18122,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -890454443, guid: 33429111a6e6f6641b18950202c21c4a, type: 3}
+  m_Sprite: {fileID: -1256094594, guid: aa86eafbbf10af4489ac6d32f8562efb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -42659,9 +42671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e55f8ebb53532429329236b4756a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 2, z: -10}
-  speed: 5
+  minMove: {x: 0, y: 0, z: 0}
+  maxMove: {x: 0, y: 0, z: 0}
 --- !u!114 &900916585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44090,6 +44101,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin (3)
@@ -45294,7 +45321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883ca82457b06bc4aabc5d59c395bbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStage: 4
+  nextStage: 3
 --- !u!212 &1444738001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46011,6 +46038,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin
@@ -46468,8 +46507,8 @@ Transform:
   m_GameObject: {fileID: 1668196581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.75, z: 0}
-  m_LocalScale: {x: 2, y: 1.5, z: 1}
+  m_LocalPosition: {x: -1.75, y: 1.5, z: 0}
+  m_LocalScale: {x: 5.5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1087250784}
@@ -46699,7 +46738,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.78431374, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -47361,6 +47400,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[0].x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006928436290609427, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
+      propertyPath: moveVector.Array.data[1].x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4543878941863385966, guid: 6c49fad4268fa114587ce2d3af3eac4b, type: 3}
       propertyPath: m_Name
       value: Goblin (2)
@@ -47985,17 +48036,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3512542730856429595, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
-      propertyPath: parallaxSpeed.Array.data[2]
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 8742526302559374866, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
       propertyPath: m_Name
       value: BackGrounds
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742526302559374866, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8943040472050482603, guid: 6a4e88bfec441bd4e9a488f8d6027d37, type: 3}
       propertyPath: m_LocalPosition.x

@@ -63,7 +63,7 @@ public class TutorialEndEvent : MonoBehaviour
         // "실패작... 가치.. 없음.."
 
         boss_Text.text = "";
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
 
         foreach (char c in "탈출한 프로토 타입 실험체...")
         {
@@ -104,7 +104,7 @@ public class TutorialEndEvent : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(SceneController.Instance.AsyncLoad(4));
+        StartCoroutine(SceneController.Instance.AsyncLoad(3));
         player.Recovery();
     }
 }

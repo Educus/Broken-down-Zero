@@ -245,6 +245,9 @@ public class Player : MonoBehaviour, IHitable
     {
         if (!isPlaying) return;
 
+        // 무기 미장착시 공격 금지
+        if (InventoryManager.Instance.inven.getWeapon.dbItem == null) return;
+
         // 대쉬, 공격중일 때 공격 금지
         if (isDashing || isAttacking) return;
 
