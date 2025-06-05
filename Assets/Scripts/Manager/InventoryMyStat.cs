@@ -19,26 +19,13 @@ public class InventoryMyStat : MonoBehaviour
 
     private void MyStats()
     {
-        if (InventoryManager.Instance.inven.getWeapon.dbItem != null)
-        {
-            myHp.text = "체력\n" + (DBPlayer.Instance.maxHp + InventoryManager.Instance.inven.getWeapon.dbItem.ItemHp);
-            myPower.text = "공격력\n" + (DBPlayer.Instance.power + InventoryManager.Instance.inven.getWeapon.dbItem.ItemPower);
-            myDefence.text = "방어력\n" + (DBPlayer.Instance.defence + InventoryManager.Instance.inven.getWeapon.dbItem.ItemDefence);
-            myMoveSpeed.text = "이동 속도\n" + (DBPlayer.Instance.moveSpeed + InventoryManager.Instance.inven.getWeapon.dbItem.ItemSpeed);
-            myAttackSpeed.text = "공격 속도\n" + (DBPlayer.Instance.attackSpeed + InventoryManager.Instance.inven.getWeapon.dbItem.ItemATKSpeed);
-            myCritical.text = "치명타 확률\n" + (DBPlayer.Instance.critical + InventoryManager.Instance.inven.getWeapon.dbItem.ItemCri) + "%";
-            myCriticalDamage.text = "치명타 피해량\n" + (DBPlayer.Instance.criticalDamage + InventoryManager.Instance.inven.getWeapon.dbItem.ItemCriDamage);
-            myAvoidance.text = "회피율\n" + (DBPlayer.Instance.avoidance + InventoryManager.Instance.inven.getWeapon.dbItem.ItemAvoid) + "%";
-        }
-        else {
-            myHp.text = "체력\n" + (DBPlayer.Instance.maxHp);
-            myPower.text = "공격력\n" + (DBPlayer.Instance.power);
-            myDefence.text = "방어력\n" + (DBPlayer.Instance.defence);
-            myMoveSpeed.text = "이동 속도\n" + (DBPlayer.Instance.moveSpeed);
-            myAttackSpeed.text = "공격 속도\n" + DBPlayer.Instance.attackSpeed;
-            myCritical.text = "치명타 확률\n" + (DBPlayer.Instance.critical) + "%";
-            myCriticalDamage.text = "치명타 피해량\n" + (DBPlayer.Instance.criticalDamage);
-            myAvoidance.text = "회피율\n" + (DBPlayer.Instance.avoidance) + "%";
-        }
+        myHp.text = "체력\n" + GamePlayerDataManager.Instance.playerHp;
+        myPower.text = "공격력\n" + GamePlayerDataManager.Instance.playerPower;
+        myDefence.text = "방어력\n" + GamePlayerDataManager.Instance.playerDefence;
+        myMoveSpeed.text = "이동 속도\n" + GamePlayerDataManager.Instance.playerSpeed;
+        myAttackSpeed.text = "공격 속도\n" + GamePlayerDataManager.Instance.playerATKSpeed;
+        myCritical.text = "치명타 확률\n" + GamePlayerDataManager.Instance.playerCri + "%";
+        myCriticalDamage.text = "치명타 피해량\n" + GamePlayerDataManager.Instance.playerCriDamage;
+        myAvoidance.text = "회피율\n" + GamePlayerDataManager.Instance.playerAvoid + "%";
     }
 }

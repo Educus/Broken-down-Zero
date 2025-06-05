@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9084018936467850228}
   - component: {fileID: 4073291926581189430}
+  - component: {fileID: 2361085388946982419}
   m_Layer: 0
   m_Name: GameDB
   m_TagString: Untagged
@@ -53,3 +54,15 @@ MonoBehaviour:
   - "\uCE58\uBA85\uD0C0\uD655\uB960"
   - "\uCE58\uBA85\uD0C0\uD53C\uD574\uB7C9"
   - "\uD68C\uD53C\uC728"
+--- !u!114 &2361085388946982419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187307149818277389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1e2a229b3918c4a88dc2e3c858884d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

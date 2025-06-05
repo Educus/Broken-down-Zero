@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2331517126193501648}
   - component: {fileID: 8063319292120574757}
   - component: {fileID: 4393161443570206997}
+  - component: {fileID: 3117297423056151299}
   m_Layer: 5
   m_Name: MyStat
   m_TagString: Untagged
@@ -76,6 +77,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3117297423056151299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218519079526903363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d633c9bfea6f38d4987e34a6cba49540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myHp: {fileID: 2250393439981855879}
+  myPower: {fileID: 3363823574476935630}
+  myDefence: {fileID: 8503855309756999273}
+  myMoveSpeed: {fileID: 1500762709053129182}
+  myAttackSpeed: {fileID: 4888194646799458929}
+  myCritical: {fileID: 7091479504675305128}
+  myCriticalDamage: {fileID: 3031044780672644969}
+  myAvoidance: {fileID: 1693704750603541224}
 --- !u!1 &479110004174571852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1034,7 @@ GameObject:
   - component: {fileID: 8795561703831539134}
   - component: {fileID: 2568634753876171293}
   m_Layer: 5
-  m_Name: Gold_Image
+  m_Name: ManaStone_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,8 +1087,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 1397172158, guid: aa9e849deb3994c44a1e6b9167b35065, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1087,7 +1108,7 @@ GameObject:
   - component: {fileID: 2876296013331432752}
   - component: {fileID: 3682733360713748002}
   m_Layer: 5
-  m_Name: NowGold
+  m_Name: NowManaStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1185,9 +1206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20729ab10bff1864cac58704285defc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStat: {fileID: 1562796256584675804}
   weaponSlots: {fileID: 102483239792322976}
   bag: {fileID: 2602602582537762875}
+  nowManaStone: {fileID: 6521089416747459879}
 --- !u!1 &4447207320764759687
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,7 +3277,7 @@ GameObject:
   - component: {fileID: 8042368077599899699}
   - component: {fileID: 6521089416747459879}
   m_Layer: 5
-  m_Name: Gold_Text
+  m_Name: ManaStone_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
