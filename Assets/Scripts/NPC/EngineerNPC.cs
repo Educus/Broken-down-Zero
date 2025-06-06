@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EngineerNPC : NPC
 {
-    [SerializeField] GameObject playerStat;
+    [SerializeField] PlayerUpgrade upgrade;
+
     public override void Interact()
     {
-        playerStat.SetActive(!playerStat.activeSelf);
+        upgrade.ActiveShop();
     }
 }
