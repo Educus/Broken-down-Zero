@@ -30,10 +30,12 @@ public class TutorialBoss : Boss
         atkC_sprite = atkC_Hit.GetComponent<SpriteRenderer>();
         atkD_sprite = atkD_Hit.GetComponent<SpriteRenderer>();
 
+        hpBar.gameObject.SetActive(false);
     }
     // 플레이어가 보스존에 들어왔을 때 isPlaying, isMove값 true로 바꾸기
     public void Playing()
     {
+        hpBar.gameObject.SetActive(true);
         isPlaying = true;
         isMove = true;
         anim.SetBool("Move", true);

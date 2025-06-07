@@ -51,7 +51,10 @@ public abstract class Enemy : MonoBehaviour, IHitable
         hpBar.gameObject.SetActive(false);      // 체력바 비활성화(피격시 활성화)
         speed = dbEnemy.EnemySPEED;
 
-        transform.parent = GameObject.Find("EnemyManagement")?.transform;   // EnemyManagement가 있으면 거기에 모든 Enemy 모으기
+        if (interval == 0)
+            isMove = true;
+
+            transform.parent = GameObject.Find("EnemyManagement")?.transform;   // EnemyManagement가 있으면 거기에 모든 Enemy 모으기
     }
 
 
@@ -60,7 +63,7 @@ public abstract class Enemy : MonoBehaviour, IHitable
         if (!isPlaying) return;
         ActionRoutine();    // 플레이어 감지 확인
 
-        anim.SetInteger("Move", (int)rigid.velocity.x);
+        anim.SetInteger("Move", (int)Mathf.Round(rigid.velocity.x));
 
         if (isTarget)
         {
@@ -76,7 +79,6 @@ public abstract class Enemy : MonoBehaviour, IHitable
             
             Move(target.transform.position.x - transform.position.x > 0 ? 2f : -2f);
 
-
             return;
         }
 
@@ -85,11 +87,14 @@ public abstract class Enemy : MonoBehaviour, IHitable
         // 자동이동이 있다면 무조건 그 상태로만 움직임
         if (moveVector.Length == 0) return;
 
-        intervalTime += Time.deltaTime;
-        if (intervalTime > interval)
+        if (interval != 0)
         {
-            intervalTime = 0;
-            isMove = !isMove;
+            intervalTime += Time.deltaTime;
+            if (intervalTime > interval)
+            {
+                intervalTime = 0;
+                isMove = !isMove;
+            }
         }
 
         if (isMove)

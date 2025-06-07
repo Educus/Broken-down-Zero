@@ -41,7 +41,7 @@ public class UpgradeSlot : MonoBehaviour
             // 앞의 업그레이드가 이루어졌고, 다른 루트의 업그레이드가 이루어졌다면 붉은색
             if (slot.Length > 1 && slot[1]?.upgrade == true)
             {
-                image.color = Color.red;
+                image.color = Color.black;
                 return;
             }
         }

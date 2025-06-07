@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public abstract class Boss : MonoBehaviour, IHitable
 {
     [SerializeField] private DBEnemy dbEnemy;   // 몬스터 정보
-    [SerializeField] private Slider hpBar;      // 몬스터 체력바
+    [SerializeField] protected Slider hpBar;      // 몬스터 체력바
 
     protected Player player;  // 플레이어
 
