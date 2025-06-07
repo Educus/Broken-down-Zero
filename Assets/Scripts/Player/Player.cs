@@ -63,6 +63,9 @@ public class Player : MonoBehaviour, IHitable
 
     void Update()
     {
+        IdleCilp();
+        anim.SetFloat("Hp", playerHp);
+
         if (!isPlaying) return;
 
         Move();
@@ -82,6 +85,17 @@ public class Player : MonoBehaviour, IHitable
         if (dashCooldownTime > 0f)
         {
             dashCooldownTime -= Time.deltaTime;
+        }
+    }
+    private void IdleCilp()
+    {
+        if(GamePlayerDataManager.Instance.playerWeapon == null)
+        {
+            anim.runtimeAnimatorController = GamePlayerDataManager.Instance.playerAnim[0];
+        }
+        else
+        {
+            anim.runtimeAnimatorController = GamePlayerDataManager.Instance.playerAnim[1];
         }
     }
 

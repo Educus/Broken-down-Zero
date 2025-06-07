@@ -40,7 +40,7 @@ public class Setting : Singleton<Setting>
         {
             exitText.text = "끝내기";
         }
-        else if (buildIndex <= 2)
+        else if (buildIndex <= 4)
         {
             exitText.text = "타이틀로";
         }

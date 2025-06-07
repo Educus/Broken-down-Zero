@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GamePlayerDataManager : Singleton<GamePlayerDataManager>
 {
+    [SerializeField] public RuntimeAnimatorController[] playerAnim;
     // 무기
     [HideInInspector] public DBItem playerWeapon { get; private set; }
 
@@ -21,11 +22,11 @@ public class GamePlayerDataManager : Singleton<GamePlayerDataManager>
     [HideInInspector] public int manaStone { get; private set;}
     [HideInInspector] public int gear { get; private set; }
 
-
-    // 플레이어의 스탯(기본스탯+아이템스탯), 보유재화(마석, 기어), 장착중인 무기 같은 모든 정보 다루기
-    // 이후 플레이어의 공격데미지, 인벤토리 스탯표시 수정하기 <- 이곳에서 작성된 기록 가져가기
-    // 그리고 무기에 따른 플레이어 idle 변경 <- 이건 인벤토리에서
-
+    private void Start()
+    {
+        manaStone = 0;
+        gear = 0;
+    }
     private void Update()
     {
         Weapons();
@@ -50,21 +51,21 @@ public class GamePlayerDataManager : Singleton<GamePlayerDataManager>
     }
 
     // 재화를 외부에서 얻을 때, 쓸 때
-    public void GetManaStone()
+    public void GetManaStone(int value)
     {
-
+        manaStone += value;
     }
-    public void SetManaStone()
+    public void SetManaStone(int value)
     {
-
+        manaStone -= value;
     }
-    public void GetGear()
+    public void GetGear(int value)
     {
-
+        gear += value;
     }
-    public void SetGear()
+    public void SetGear(int value)
     {
-
+        gear -= value;
     }
 
 }
