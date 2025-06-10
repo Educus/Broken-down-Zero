@@ -44,7 +44,7 @@ public class Inventory : MonoBehaviour
     }
     private void ManaStone()
     {
-        nowManaStone.text = GameManager.Instance.manaStone.ToString();
+        nowManaStone.text = GamePlayerDataManager.Instance.manaStone.ToString();
     }
     public void GetItem(Item item)
     {

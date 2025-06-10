@@ -34,6 +34,7 @@ public class OrbShop : MonoBehaviour
         buyButton.SetActive(false);
         itemInformation.SetActive(false);
         shop.SetActive(false);
+        InventoryManager.Instance.inven.gameObject.SetActive(false);
     }
 
     public void BuyItem(ShopListItem item)
@@ -45,7 +46,7 @@ public class OrbShop : MonoBehaviour
 
     public void BuyButton(bool value)
     {
-        if (value)
+        if (value && GamePlayerDataManager.Instance.SetManaStone(buyItem.dbItem.ItemPrice))
         {
             Item item = new Item();
             item.SetItem(buyItem.dbItem, true);
