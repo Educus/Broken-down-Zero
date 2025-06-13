@@ -44,7 +44,20 @@ public class InventoryDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (ChangeSlot.Instance.currentSlot == null) return;
         if (ChangeSlot.Instance.currentSlot.dbItem == null) return;
         if (ChangeSlot.Instance.currentSlot == slot) return;
-
+        if (slot.limit) if (slot.type != ChangeSlot.Instance.currentSlot.dbItem?.ItemType)
+            {
+                // 대상에게 제한이 있을 때 나의 타입을 확인
+                // 다를 경우 교환안함
+                return;
+            }
+        if (ChangeSlot.Instance.currentSlot.limit) 
+            if (slot.dbItem != null && ChangeSlot.Instance.currentSlot.type != slot.dbItem?.ItemType)
+            {
+                // 기존 대상에게 제한이 있을 때 바꿀 대상의 타입을 확인
+                // 비어있지 않을 때 타입이 다르면 교환안함
+                return;
+            }
+        
         DBItem item = slot.dbItem;
         slot.ClearSolt();
         slot.AddItem(ChangeSlot.Instance.currentSlot.dbItem);

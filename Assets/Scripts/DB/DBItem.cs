@@ -5,10 +5,11 @@ using UnityEngine;
 [System.Flags]
 public enum ItemType
 {
-    NONE        = 0b0,
-    SKILL       = 0b1,
+    NONE        = 0,
+    SKILL       = 1 << 0,
 
-    WEAPON      = 0b10
+    WEAPON      = 1 << 10,
+    ACCESSORY   = 1 << 11,
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "Add DB/Item")]

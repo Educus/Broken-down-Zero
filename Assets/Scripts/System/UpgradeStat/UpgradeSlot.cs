@@ -45,7 +45,7 @@ public class UpgradeSlot : MonoBehaviour
             // 앞의 업그레이드가 이루어지지 않았다면 붉은색
             if (slot[0]?.upgrade == false)
             {
-                image.color = Color.red;
+                image.color = Color.gray;
                 return;
             }
 

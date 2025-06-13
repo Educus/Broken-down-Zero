@@ -859,7 +859,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &98526265
 RectTransform:
@@ -3552,10 +3552,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 7
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &289127080
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,7 +4835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a05ed6c0b695d240a88b0b25aec3ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dbItem: {fileID: 11400000, guid: 40109a3dcc5d6cc4c8a164dcb38e8593, type: 2}
+  dbItem: {fileID: 11400000, guid: 6362627800ed26a46babe20c5d36c70e, type: 2}
   itemImage: {fileID: 245529225}
   itemName: {fileID: 1260986307}
   itemPrice: {fileID: 580678512}
@@ -11017,7 +11013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a05ed6c0b695d240a88b0b25aec3ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dbItem: {fileID: 11400000, guid: d45096623b69d1e41b216789a134ea99, type: 2}
+  dbItem: {fileID: 11400000, guid: f1be1e50caa5c7c4f964dacaf504f101, type: 2}
   itemImage: {fileID: 316764082}
   itemName: {fileID: 1347952823}
   itemPrice: {fileID: 1897230881}

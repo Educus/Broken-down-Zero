@@ -21,7 +21,7 @@ public class ShopListItem : MonoBehaviour
     {
         itemImage.sprite = dbItem.ItemImage;
         itemName.text = dbItem.ItemName;
-        itemPrice.text = dbItem.ItemPrice.ToString();
+        itemPrice.text = "<sprite=0> " + dbItem.ItemPrice.ToString();
     }
 
     public void BuyItem()

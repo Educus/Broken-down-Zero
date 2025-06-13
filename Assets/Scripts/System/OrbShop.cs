@@ -41,7 +41,7 @@ public class OrbShop : MonoBehaviour
     {
         buyItem = item;
         buyButton.SetActive(true);
-        buyItemText.text = item.dbItem.ItemName + "을(를) " + item.dbItem.ItemPrice + "에" + "\n구매하시겠습니까?";
+        buyItemText.text = item.dbItem.ItemName + "을(를) " + "<sprite=1>" + item.dbItem.ItemPrice + "에" + "\n구매하시겠습니까?";
     }
 
     public void BuyButton(bool value)
