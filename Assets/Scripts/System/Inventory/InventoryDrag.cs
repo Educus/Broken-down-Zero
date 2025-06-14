@@ -44,7 +44,8 @@ public class InventoryDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (ChangeSlot.Instance.currentSlot == null) return;
         if (ChangeSlot.Instance.currentSlot.dbItem == null) return;
         if (ChangeSlot.Instance.currentSlot == slot) return;
-        if (slot.limit) if (slot.type != ChangeSlot.Instance.currentSlot.dbItem?.ItemType)
+        if (slot.limit)
+            if (slot.type != ChangeSlot.Instance.currentSlot.dbItem?.ItemType)
             {
                 // 대상에게 제한이 있을 때 나의 타입을 확인
                 // 다를 경우 교환안함

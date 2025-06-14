@@ -28,7 +28,7 @@ public class TitleManager : MonoBehaviour
             GameManager.Instance.LoadPlayer();
             GameManager.Instance.MovePlayer();
             GameManager.Instance.tutorial = false;
-            StartCoroutine(SceneController.Instance.AsyncLoad(4));
+            StartCoroutine(SceneController.Instance.AsyncLoad(6));
         }
 
     }
