@@ -34,18 +34,19 @@ public class OrbShop : MonoBehaviour
         buyButton.SetActive(false);
         itemInformation.SetActive(false);
         shop.SetActive(false);
+        InventoryManager.Instance.inven.gameObject.SetActive(false);
     }
 
     public void BuyItem(ShopListItem item)
     {
         buyItem = item;
         buyButton.SetActive(true);
-        buyItemText.text = item.dbItem.ItemName + "을(를) " + item.dbItem.ItemPrice + "에" + "\n구매하시겠습니까?";
+        buyItemText.text = item.dbItem.ItemName + "을(를) " + "<sprite=1>" + item.dbItem.ItemPrice + "에" + "\n구매하시겠습니까?";
     }
 
     public void BuyButton(bool value)
     {
-        if (value)
+        if (value && GamePlayerDataManager.Instance.SetManaStone(buyItem.dbItem.ItemPrice))
         {
             Item item = new Item();
             item.SetItem(buyItem.dbItem, true);

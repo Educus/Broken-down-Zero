@@ -24,6 +24,10 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private Sprite OnItem;
     [SerializeField] private Sprite OffItem;
 
+    [Header("아이템 제한")]
+    [SerializeField] public bool limit;
+    [SerializeField] public ItemType type;
+
     private void Awake()
     {
         SetColor(0);

@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df70ea24cee0ee34983844a1e23a7e9e, type: 3}
-  m_Name: 0_Orb_GreatSword2
+  m_Name: 04_Shot Sword 2
   m_EditorClassIdentifier: 
-  mItemID: 10002
-  mItemName: "2\uC7A5\uAC80"
-  mItemPrice: 1500
+  mItemID: 10004
+  mItemName: "4 \uC20F\uC18C\uB4DC"
+  mItemPrice: 800
   mCanOverlap: 0
   mIsInteractivity: 0
   mIsConsumable: 0
   mItemCooltime: 2
-  mItemType: 2
-  mItemImage: {fileID: 21300000, guid: 77f5c26cf9bc2c44b943614930a27f5f, type: 3}
-  mItemPrefab: {fileID: 0}
+  mItemType: 1024
+  mItemImage: {fileID: 21300000, guid: b486bc7bb919c5545bec76854a9a5839, type: 3}
+  mItemPrefab: {fileID: 6162524614301996503, guid: 1fd83e7bc40c6df4eae243a96333fc1d, type: 3}
   mItemHp: 0
-  mItemPower: 6
+  mItemPower: 1
   mItemDefence: 0
   mItemSpeed: 0
-  mItemATKSpeed: 0.6
-  mItemCri: 2
+  mItemATKSpeed: 4
+  mItemCri: 4
   mItemCriDamage: 0
   mItemAvoid: 0
   mHpZen: 0

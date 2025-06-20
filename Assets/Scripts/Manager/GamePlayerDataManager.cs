@@ -24,8 +24,8 @@ public class GamePlayerDataManager : Singleton<GamePlayerDataManager>
 
     private void Start()
     {
-        manaStone = 0;
-        gear = 0;
+        manaStone = 5000;
+        gear = 500;
     }
     private void Update()
     {
@@ -55,17 +55,29 @@ public class GamePlayerDataManager : Singleton<GamePlayerDataManager>
     {
         manaStone += value;
     }
-    public void SetManaStone(int value)
+    public bool SetManaStone(int value)
     {
-        manaStone -= value;
+        if (manaStone >= value)
+        {
+            manaStone -= value;
+            return true;
+        }
+
+        return false;
     }
     public void GetGear(int value)
     {
         gear += value;
     }
-    public void SetGear(int value)
+    public bool SetGear(int value)
     {
-        gear -= value;
+        if(gear >= value)
+        {
+            gear -= value;
+            return true;
+        }
+
+        return false;
     }
 
 }

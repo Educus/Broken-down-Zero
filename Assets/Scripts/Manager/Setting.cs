@@ -40,7 +40,7 @@ public class Setting : Singleton<Setting>
         {
             exitText.text = "끝내기";
         }
-        else if (buildIndex <= 4)
+        else if (buildIndex <= 3 || buildIndex == 6)
         {
             exitText.text = "타이틀로";
         }
@@ -86,7 +86,7 @@ public class Setting : Singleton<Setting>
         Application.Quit();
 #endif
         }
-        else if(buildIndex <= 4) // 튜토리얼 ~ 마을
+        else if(buildIndex <= 3 || buildIndex == 6) // 튜토리얼 ~ 마을
         {
             StartCoroutine(SceneController.Instance.AsyncLoad(0));
             GameManager.Instance.MovePlayer();

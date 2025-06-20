@@ -8,9 +8,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] public GameObject startingPoint;
     [SerializeField] private GameObject prefab;
     [HideInInspector] public bool tutorial = false;
-    // ¿Á»≠
-    [HideInInspector] public int manaStone;
-    [HideInInspector] public int gear;
 
     public bool isPlaying = true;
 
