@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: 02_GreatSword2
   m_EditorClassIdentifier: 
   mItemID: 10002
-  mItemName: "2\uC7A5\uAC80"
+  mItemName: "\uB300\uAC70 \uC624\uBE0C"
   mItemPrice: 1500
   mCanOverlap: 0
   mIsInteractivity: 0
   mIsConsumable: 0
   mItemCooltime: 2
   mItemType: 1024
-  mItemImage: {fileID: 21300000, guid: 77f5c26cf9bc2c44b943614930a27f5f, type: 3}
+  mItemImage: {fileID: 21300000, guid: fe1babb1bd7eb054fb53768a4b2a193b, type: 3}
   mItemPrefab: {fileID: 6162524614301996503, guid: 1fd83e7bc40c6df4eae243a96333fc1d, type: 3}
   mItemHp: 0
   mItemPower: 6

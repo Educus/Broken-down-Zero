@@ -12,6 +12,8 @@ public class Player : MonoBehaviour, IHitable
     public float playerMaxHp { get { return maxHp; } }
     private float hp;
     public float playerHp { get { return hp; } }
+    private float dummyHp;
+
     private float defence;
     private float avoidance;
 
@@ -59,15 +61,19 @@ public class Player : MonoBehaviour, IHitable
         playerGravity = rigid.gravityScale;
 
         GetStat();
+        hp = maxHp;
+        dummyHp = maxHp;
     }
 
     void Update()
     {
+        GetStat();
         IdleCilp();
         anim.SetFloat("Hp", playerHp);
 
         if (!isPlaying) return;
 
+        ChangeHp();
         Move();
 
         // 공격 중일 때 이동을 멈추고 타이머만 진행
@@ -126,19 +132,24 @@ public class Player : MonoBehaviour, IHitable
     }
     private void GetStat()
     {
-        maxHp = DBPlayer.Instance.maxHp;
-        hp = DBPlayer.Instance.maxHp;
-        power = DBPlayer.Instance.power;
-        defence = DBPlayer.Instance.defence;
-        moveSpeed = DBPlayer.Instance.moveSpeed;
-        attackSpeed = DBPlayer.Instance.attackSpeed;
+        maxHp = GamePlayerDataManager.Instance.playerHp;
+        power = GamePlayerDataManager.Instance.playerPower;
+        defence = GamePlayerDataManager.Instance.playerDefence;
+        moveSpeed = GamePlayerDataManager.Instance.playerSpeed;
+        attackSpeed = GamePlayerDataManager.Instance.playerATKSpeed;
         jumpPower = DBPlayer.Instance.jumpPower;
         dashRange = DBPlayer.Instance.dashRange;
-        critical = DBPlayer.Instance.critical;
-        criticalDamage = DBPlayer.Instance.criticalDamage;
-        avoidance = DBPlayer.Instance.avoidance;
+        critical = GamePlayerDataManager.Instance.playerCri;
+        criticalDamage = GamePlayerDataManager.Instance.playerCriDamage;
+        avoidance = GamePlayerDataManager.Instance.playerAvoid;
     }
+    private void ChangeHp()
+    {
+        if(dummyHp == maxHp) return;
 
+        hp += maxHp - dummyHp;
+        dummyHp = maxHp;
+    }
     private void IsGround()
     {
         int layerMask = 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform");
@@ -342,7 +353,7 @@ public class Player : MonoBehaviour, IHitable
         }
         else // 튜토리얼 이외에서 죽었을 때 이벤트
         {
-
+            StartCoroutine(GameManager.Instance.Recovery(3));
         }
     }
     public void Recovery()

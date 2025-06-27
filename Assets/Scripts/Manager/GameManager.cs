@@ -68,6 +68,10 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
+            StartCoroutine(SceneController.Instance.AsyncLoad(3));
+
+            yield return new WaitForSeconds(1);
+
             player.GetComponent<Player>().Recovery();
         }
     }

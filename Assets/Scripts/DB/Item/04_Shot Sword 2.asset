@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: 04_Shot Sword 2
   m_EditorClassIdentifier: 
   mItemID: 10004
-  mItemName: "4 \uC20F\uC18C\uB4DC"
+  mItemName: "\uCE90\uB17C \uC624\uBE0C"
   mItemPrice: 800
   mCanOverlap: 0
   mIsInteractivity: 0
   mIsConsumable: 0
   mItemCooltime: 2
   mItemType: 1024
-  mItemImage: {fileID: 21300000, guid: b486bc7bb919c5545bec76854a9a5839, type: 3}
+  mItemImage: {fileID: 21300000, guid: a6e913aa2ad355d40831a45e4f9c7e3b, type: 3}
   mItemPrefab: {fileID: 6162524614301996503, guid: 1fd83e7bc40c6df4eae243a96333fc1d, type: 3}
   mItemHp: 0
   mItemPower: 1

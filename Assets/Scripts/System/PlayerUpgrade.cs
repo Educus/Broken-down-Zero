@@ -49,7 +49,7 @@ public class PlayerUpgrade : MonoBehaviour
             }
         }
 
-        progress.text = upgradeCount.ToString() + "%";
+        progress.text = upgradeCount.ToString("0.##") + "%";
     }
     public void ActiveShop()
     {

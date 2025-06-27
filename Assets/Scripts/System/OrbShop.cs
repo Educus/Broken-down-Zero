@@ -9,12 +9,22 @@ public class OrbShop : MonoBehaviour
     [SerializeField] GameObject itemInformation;
     [SerializeField] GameObject buyButton;
     [SerializeField] TMP_Text buyItemText;
+    [SerializeField] GameObject notBuyButton;
 
     private ShopListItem buyItem;
     void Start()
     {
         shop.SetActive(false);
         buyButton.SetActive(false);
+        notBuyButton.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (shop.activeSelf == true)
+            if (InventoryManager.Instance.inven.gameObject.activeSelf == false)
+                shop.SetActive(false);
+
     }
 
     public void ActiveShop()
@@ -25,13 +35,17 @@ public class OrbShop : MonoBehaviour
         }
 
         buyButton.SetActive(false);
+        notBuyButton.SetActive(false);
         itemInformation.SetActive(false);
         shop.SetActive(!shop.activeSelf);
     }
 
     public void CloseShop()
     {
+        if (shop.activeSelf == false) return;
+
         buyButton.SetActive(false);
+        notBuyButton.SetActive(false);
         itemInformation.SetActive(false);
         shop.SetActive(false);
         InventoryManager.Instance.inven.gameObject.SetActive(false);
@@ -46,14 +60,21 @@ public class OrbShop : MonoBehaviour
 
     public void BuyButton(bool value)
     {
-        if (value && GamePlayerDataManager.Instance.SetManaStone(buyItem.dbItem.ItemPrice))
+        if (value)
         {
-            Item item = new Item();
-            item.SetItem(buyItem.dbItem, true);
+            if (GamePlayerDataManager.Instance.SetManaStone(buyItem.dbItem.ItemPrice))
+            {
+                Item item = new Item();
+                item.SetItem(buyItem.dbItem, true);
 
-            InventoryManager.Instance.GetItem(item);
-            Debug.Log("±¸¸Å");
-            Destroy(buyItem.gameObject);
+                InventoryManager.Instance.GetItem(item);
+                Destroy(buyItem.gameObject);
+            }
+            else
+            {
+                notBuyButton?.SetActive(true);
+                buyItem = null;
+            }
         }
         else
         {
@@ -61,5 +82,10 @@ public class OrbShop : MonoBehaviour
         }
 
         buyButton.SetActive(false);
+    }
+
+    public void NotBuy()
+    {
+        notBuyButton.SetActive(false);
     }
 }

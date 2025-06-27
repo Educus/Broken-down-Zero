@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class TutorialEndEvent : MonoBehaviour
@@ -43,6 +44,17 @@ public class TutorialEndEvent : MonoBehaviour
         while (Mathf.Abs(transform.position.x - player.transform.position.x) > 5f) // 플레이어와의 거리가 *이상일 때 움직임
         {
             Move(2f);
+
+            yield return null;
+
+            if (Mathf.Abs(transform.localPosition.x) > 14) break;
+        }
+
+        while (Mathf.Abs(transform.localPosition.x) > 14) // 14 초과일 경우 대사가 짤림
+        {
+            Move(transform.localPosition.x < 0 ? 1 : -1);
+
+            sprite.flipX = transform.localPosition.x < 0 ? true : false;
 
             yield return null;
         }

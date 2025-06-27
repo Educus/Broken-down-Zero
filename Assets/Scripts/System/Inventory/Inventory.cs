@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private ItemSlot weaponSlots = new ItemSlot();
     public ItemSlot getWeapon { get { return weaponSlots; } }
+    [SerializeField] private ItemSlot[] Accessories = new ItemSlot[0];
+    public ItemSlot[] getAccessories { get { return Accessories; } }
 
 
     [SerializeField] private GameObject bag;
